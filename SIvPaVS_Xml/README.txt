@@ -1,0 +1,3 @@
+Do tejto zloky poprosím vklada všetky súbory tıkajúce sa XML.
+To znamená XML Schéma, XSLT transformácia,...
+Postupne sem pravdepodobne budú pribúda ïalšie dokumenty.
