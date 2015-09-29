@@ -1,0 +1,9 @@
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\SIvPaVS_App.exe.config
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\SIvPaVS_App.exe
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\SIvPaVS_App.pdb
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.form_Main.resources
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.Properties.Resources.resources
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csproj.GenerateResource.Cache
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.exe
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.pdb
