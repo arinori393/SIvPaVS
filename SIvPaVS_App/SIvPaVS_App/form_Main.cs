@@ -36,7 +36,7 @@ namespace SIvPaVS_App
         }
 
         #endregion
-
+                
         #region Functions
         // Prosim davat kazdej funkcii prefix f_
         // Priklad: f_funkciaXY
@@ -47,6 +47,32 @@ namespace SIvPaVS_App
         // Prosim davat kazdemu handleru prefix eh_
         // Priklad: eh_eventhandlerXY
 
-        #endregion
+        private void eh_tsmi_File_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender.Equals(tsmi_FileNew))
+                {
+                }
+                else if (sender.Equals(tsmi_FileSave))
+                { 
+                }
+                else if (sender.Equals(tsmi_FileSaveAs))
+                { 
+                }
+                else if (sender.Equals(tsmi_FileExit))
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception exc) 
+            {
+                MessageBox.Show(exc.ToString(), "Exception!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
+        }
+
+        #endregion        
     }
 }
