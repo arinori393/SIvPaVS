@@ -7,3 +7,4 @@ C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPa
 C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csproj.GenerateResource.Cache
 C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.exe
 C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.pdb
+C:\Users\Martin\Documents\GitHub\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.CustomMessageBoxes.form_msg_CreateNew.resources

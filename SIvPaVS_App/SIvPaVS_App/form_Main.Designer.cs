@@ -65,8 +65,10 @@
             // tsmi_FileNew
             // 
             this.tsmi_FileNew.Name = "tsmi_FileNew";
+            this.tsmi_FileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.tsmi_FileNew.Size = new System.Drawing.Size(152, 22);
             this.tsmi_FileNew.Text = "New...";
+            this.tsmi_FileNew.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileSeparator1
             // 
@@ -76,14 +78,17 @@
             // tsmi_FileSave
             // 
             this.tsmi_FileSave.Name = "tsmi_FileSave";
+            this.tsmi_FileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.tsmi_FileSave.Size = new System.Drawing.Size(152, 22);
             this.tsmi_FileSave.Text = "Save";
+            this.tsmi_FileSave.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileSaveAs
             // 
             this.tsmi_FileSaveAs.Name = "tsmi_FileSaveAs";
             this.tsmi_FileSaveAs.Size = new System.Drawing.Size(152, 22);
             this.tsmi_FileSaveAs.Text = "Save as...";
+            this.tsmi_FileSaveAs.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileSeparator2
             // 
@@ -95,6 +100,7 @@
             this.tsmi_FileExit.Name = "tsmi_FileExit";
             this.tsmi_FileExit.Size = new System.Drawing.Size(152, 22);
             this.tsmi_FileExit.Text = "Exit";
+            this.tsmi_FileExit.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // form_Main
             // 
