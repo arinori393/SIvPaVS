@@ -1,0 +1,53 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="addressType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="street"/>
+      <xs:element type="xs:string" name="city"/>
+      <xs:element type="xs:string" name="zip"/>
+      <xs:element type="xs:string" name="country"/>
+    </xs:sequence>  
+  </xs:complexType>
+
+  <xs:complexType name="business-object">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="addressType" name="address"/>
+      <xs:element type="xs:string" name="company-reg-num"/>
+      <xs:element type="xs:string" name="vat-reg-num"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:positiveInteger" name="quantity"/>
+      <xs:element type="xs:decimal" name="price"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="itemsType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="receiptType">
+    <xs:sequence>
+      <xs:element type="business-object" name="provider"/>
+      <xs:element type="itemsType" name="items"/>
+      <xs:element type="xs:dateTime" name="issued-at"/>
+      <xs:element type="xs:string" name="tax-code"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="receiptsType">
+    <xs:sequence>
+      <xs:element type="receiptType" name="receipt"/>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:element type="receiptsType" name="receipts"/>
+
+</xs:schema>

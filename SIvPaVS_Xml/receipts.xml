@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<receipts>
+	<receipt id="1">
+		<provider>
+			<name>HARMONY SERVIS Slovakia s.r.o.</name>
+			<address>
+				<street>Na križovatkách 37/C</street>
+				<city>Bratislava</city>
+				<zip>82104</zip>
+				<country>Slovensko</country>
+			</address>
+			<company-reg-num>6410104</company-reg-num>
+			<vat-reg-num>SK2023370140</vat-reg-num>
+		</provider>
+		<items>
+			<item>
+				<name>rozok</name>
+				<quantity>5</quantity>
+				<price>0.05</price>
+			</item>
+			<item>
+				<name>mlieko</name>
+				<quantity>1</quantity>
+				<price>0.99</price>
+			</item>
+			<item>
+				<name>vajcia-12ks</name>
+				<quantity>1</quantity>
+				<price>2.30</price>
+			</item>
+		</items>
+		<issued-at>2013-12-02T09:47:12</issued-at>
+		<tax-code>8012023370140001</tax-code>
+	</receipt>
+</receipts>
