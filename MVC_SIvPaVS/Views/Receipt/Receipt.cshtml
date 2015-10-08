@@ -1,0 +1,65 @@
+﻿@model SIvPaVS.Models.ReceiptModel
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<h2>Pokladničný blok</h2>
+
+
+@using (Html.BeginForm(@*"Receipt","Receipt","POST"*@))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Slúži ako dańový doklad.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div>
+            @Html.Partial("Company", Model.Provider)
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Issuedat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Issuedat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Issuedat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Taxcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Taxcode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Taxcode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div>
+            @Html.Partial("Items", Model.Items)
+        </div>
+
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Uložiť" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

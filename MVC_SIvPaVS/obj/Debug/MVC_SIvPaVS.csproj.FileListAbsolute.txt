@@ -1,0 +1,137 @@
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\csc.exe
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\System.Collections.Immutable.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\vbc.exe
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\VBCSCompiler.exe
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\VBCSCompiler.exe.config
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.dll.config
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.pdb
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Antlr3.Runtime.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.SqlServer.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Google.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Web.Infrastructure.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Newtonsoft.Json.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Owin.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Helpers.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Mvc.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Optimization.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Razor.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Deployment.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Razor.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\WebGrease.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Helpers.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Mvc.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Optimization.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Razor.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Deployment.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Razor.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Antlr3.Runtime.pdb
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Newtonsoft.Json.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.SqlServer.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Google.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\obj\Debug\MVC_SIvPaVS.dll
+c:\users\gajdoš michal\documents\visual studio 2015\Projects\MVC_SIvPaVS\MVC_SIvPaVS\obj\Debug\MVC_SIvPaVS.pdb
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\csc.exe
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\System.Collections.Immutable.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\System.Reflection.Metadata.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\vbc.exe
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\VBCSCompiler.exe
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\roslyn\VBCSCompiler.exe.config
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.dll.config
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\MVC_SIvPaVS.pdb
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Antlr3.Runtime.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.SqlServer.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Google.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Web.Infrastructure.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Newtonsoft.Json.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Owin.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Helpers.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Mvc.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Optimization.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Razor.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Deployment.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Razor.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\WebGrease.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Helpers.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Mvc.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Optimization.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.Razor.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Deployment.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\System.Web.WebPages.Razor.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Antlr3.Runtime.pdb
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Newtonsoft.Json.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\EntityFramework.SqlServer.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Google.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\obj\Debug\MVC_SIvPaVS.csprojResolveAssemblyReference.cache
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\obj\Debug\MVC_SIvPaVS.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\MVC_SIvPaVS\MVC_SIvPaVS\obj\Debug\MVC_SIvPaVS.pdb
