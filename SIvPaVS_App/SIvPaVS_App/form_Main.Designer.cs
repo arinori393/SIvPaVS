@@ -331,24 +331,23 @@ namespace SIvPaVS_App
             this.panelItems.AutoSize = true;
             this.panelItems.ColumnCount = 1;
             this.panelItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelItems.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelItems.Location = new System.Drawing.Point(0, 0);
             this.panelItems.Name = "panelItems";
             this.panelItems.RowCount = 1;
             this.panelItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelItems.Size = new System.Drawing.Size(100, 100);
+            this.panelItems.Size = new System.Drawing.Size(569, 0);
             this.panelItems.TabIndex = 6;
             // 
             // outerPanelItems
             // 
             this.outerPanelItems.AutoScroll = true;
-            this.outerPanelItems.AutoSize = true;
-            this.outerPanelItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.outerPanelItems.Controls.Add(this.panelItems);
             this.outerPanelItems.Dock = System.Windows.Forms.DockStyle.Top;
             this.outerPanelItems.Location = new System.Drawing.Point(0, 407);
             this.outerPanelItems.MaximumSize = new System.Drawing.Size(569, 250);
             this.outerPanelItems.Name = "outerPanelItems";
-            this.outerPanelItems.Size = new System.Drawing.Size(569, 103);
+            this.outerPanelItems.Size = new System.Drawing.Size(569, 250);
             this.outerPanelItems.TabIndex = 7;
             // 
             // lbTAXPercentage
@@ -482,7 +481,7 @@ namespace SIvPaVS_App
             this.gbSummary.Controls.Add(this.lbTAXBase);
             this.gbSummary.Controls.Add(this.lbTotal);
             this.gbSummary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSummary.Location = new System.Drawing.Point(0, 510);
+            this.gbSummary.Location = new System.Drawing.Point(0, 657);
             this.gbSummary.Name = "gbSummary";
             this.gbSummary.Size = new System.Drawing.Size(569, 174);
             this.gbSummary.TabIndex = 7;

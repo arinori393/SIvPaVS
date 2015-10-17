@@ -68,6 +68,9 @@ namespace SIvPaVS_App
         {
             panelItems.Controls.Clear();
 
+            if (Items.Count == 0)
+                Items.Add(new ItemSection());
+                
             int counter = 0;
             foreach (var item in Items)
             {
@@ -75,6 +78,8 @@ namespace SIvPaVS_App
                 item.f_SetControlsFromEntity(counter + 1,this, counter == Items.Count-1);
                 panelItems.Controls.Add(Items[counter++]);
             }
+
+
         }
 
         public void f_RemoveItem(int position = 0)

@@ -27,8 +27,21 @@ namespace SIvPaVS_App
             lbID.Text = ID.ToString();
 
 
+            f_SetDudItemUnit();
+
             lbAddItem.Visible = isLast;
 
+        }
+
+        private void f_SetDudItemUnit()
+        {
+            DomainUpDown.DomainUpDownItemCollection items = this.dudItemUnit.Items;
+            items.Add("g");
+            items.Add("kg");
+            items.Add("ks");
+            items.Add("l");
+
+            dudItemUnit.Text = "kg";
         }
 
         private void eh_lbDelete_Click(object sender, EventArgs e)

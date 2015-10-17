@@ -142,8 +142,10 @@
             // 
             this.dudItemUnit.Location = new System.Drawing.Point(122, 31);
             this.dudItemUnit.Name = "dudItemUnit";
+            this.dudItemUnit.ReadOnly = true;
             this.dudItemUnit.Size = new System.Drawing.Size(58, 22);
             this.dudItemUnit.TabIndex = 10;
+            this.dudItemUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ItemSection
             // 
