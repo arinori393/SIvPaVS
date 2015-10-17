@@ -39,11 +39,14 @@ namespace SIvPaVS_App
             this.tsmi_FileSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_FileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.gbCompany = new System.Windows.Forms.GroupBox();
+            this.cbManualTime = new System.Windows.Forms.CheckBox();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.dtTime = new System.Windows.Forms.DateTimePicker();
             this.tbTaxCode = new System.Windows.Forms.TextBox();
             this.lbTaxCode = new System.Windows.Forms.Label();
-            this.dtDate = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.gbCompanyAddress = new System.Windows.Forms.GroupBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbZIP = new System.Windows.Forms.TextBox();
             this.lbZIP = new System.Windows.Forms.Label();
             this.tbCity = new System.Windows.Forms.TextBox();
@@ -68,7 +71,7 @@ namespace SIvPaVS_App
             this.tbTAXTotal = new System.Windows.Forms.TextBox();
             this.lbTAXTotal = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
-            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.tbTotalPrice = new System.Windows.Forms.TextBox();
             this.lbTotalEUR = new System.Windows.Forms.Label();
             this.gbSummary = new System.Windows.Forms.GroupBox();
             this.ms_MainMenu.SuspendLayout();
@@ -145,10 +148,11 @@ namespace SIvPaVS_App
             // 
             // gbCompany
             // 
+            this.gbCompany.Controls.Add(this.cbManualTime);
+            this.gbCompany.Controls.Add(this.lbTime);
+            this.gbCompany.Controls.Add(this.dtTime);
             this.gbCompany.Controls.Add(this.tbTaxCode);
             this.gbCompany.Controls.Add(this.lbTaxCode);
-            this.gbCompany.Controls.Add(this.dtDate);
-            this.gbCompany.Controls.Add(this.dateTimePicker1);
             this.gbCompany.Controls.Add(this.gbCompanyAddress);
             this.gbCompany.Controls.Add(this.tbCompanyTaxNumber);
             this.gbCompany.Controls.Add(this.lbCompanyTaxNumber);
@@ -160,50 +164,71 @@ namespace SIvPaVS_App
             this.gbCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCompany.Location = new System.Drawing.Point(0, 28);
             this.gbCompany.Name = "gbCompany";
-            this.gbCompany.Size = new System.Drawing.Size(569, 379);
+            this.gbCompany.Size = new System.Drawing.Size(569, 468);
             this.gbCompany.TabIndex = 4;
             this.gbCompany.TabStop = false;
             this.gbCompany.Text = "Spoločnosť";
             // 
+            // cbManualTime
+            // 
+            this.cbManualTime.AutoSize = true;
+            this.cbManualTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbManualTime.Location = new System.Drawing.Point(166, 365);
+            this.cbManualTime.Name = "cbManualTime";
+            this.cbManualTime.Size = new System.Drawing.Size(221, 22);
+            this.cbManualTime.TabIndex = 14;
+            this.cbManualTime.Text = "Zadať dátum a čas manuálne";
+            this.cbManualTime.UseVisualStyleBackColor = true;
+            this.cbManualTime.CheckedChanged += new System.EventHandler(this.cbManualTime_CheckedChanged);
+            // 
+            // lbTime
+            // 
+            this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(110, 341);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(36, 17);
+            this.lbTime.TabIndex = 13;
+            this.lbTime.Text = "Čas:";
+            // 
+            // dtTime
+            // 
+            this.dtTime.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.dtTime.Enabled = false;
+            this.dtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtTime.Location = new System.Drawing.Point(166, 333);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.Size = new System.Drawing.Size(247, 26);
+            this.dtTime.TabIndex = 12;
+            this.dtTime.Value = new System.DateTime(2015, 10, 17, 15, 45, 8, 0);
+            // 
             // tbTaxCode
             // 
             this.tbTaxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaxCode.Location = new System.Drawing.Point(210, 335);
+            this.tbTaxCode.Location = new System.Drawing.Point(166, 403);
+            this.tbTaxCode.MaxLength = 16;
             this.tbTaxCode.Name = "tbTaxCode";
             this.tbTaxCode.Size = new System.Drawing.Size(247, 26);
             this.tbTaxCode.TabIndex = 11;
-            this.tbTaxCode.Text = "SK58-47-555-355";
+            this.tbTaxCode.Text = "5412145789632547";
+            this.tbTaxCode.Validating += new System.ComponentModel.CancelEventHandler(this.eh_TaxCodeValidation);
+            this.tbTaxCode.Validated += new System.EventHandler(this.eh_TaxCodeValidated);
             // 
             // lbTaxCode
             // 
             this.lbTaxCode.AutoSize = true;
             this.lbTaxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTaxCode.Location = new System.Drawing.Point(52, 344);
+            this.lbTaxCode.Location = new System.Drawing.Point(8, 409);
             this.lbTaxCode.Name = "lbTaxCode";
             this.lbTaxCode.Size = new System.Drawing.Size(138, 17);
             this.lbTaxCode.TabIndex = 10;
             this.lbTaxCode.Text = "Kód reg. pokladnice:";
             // 
-            // dtDate
-            // 
-            this.dtDate.AutoSize = true;
-            this.dtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtDate.Location = new System.Drawing.Point(52, 311);
-            this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(53, 17);
-            this.dtDate.TabIndex = 9;
-            this.dtDate.Text = "Dátum:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(267, 303);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(190, 26);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
             // gbCompanyAddress
             // 
+            this.gbCompanyAddress.Controls.Add(this.cbCountry);
+            this.gbCompanyAddress.Controls.Add(this.label1);
             this.gbCompanyAddress.Controls.Add(this.tbZIP);
             this.gbCompanyAddress.Controls.Add(this.lbZIP);
             this.gbCompanyAddress.Controls.Add(this.tbCity);
@@ -213,14 +238,34 @@ namespace SIvPaVS_App
             this.gbCompanyAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCompanyAddress.Location = new System.Drawing.Point(12, 161);
             this.gbCompanyAddress.Name = "gbCompanyAddress";
-            this.gbCompanyAddress.Size = new System.Drawing.Size(547, 124);
+            this.gbCompanyAddress.Size = new System.Drawing.Size(547, 156);
             this.gbCompanyAddress.TabIndex = 6;
             this.gbCompanyAddress.TabStop = false;
             this.gbCompanyAddress.Text = "Adresa";
             // 
+            // cbCountry
+            // 
+            this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(128, 122);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(344, 28);
+            this.cbCountry.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(51, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 18);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Štát:";
+            // 
             // tbZIP
             // 
             this.tbZIP.Location = new System.Drawing.Point(128, 90);
+            this.tbZIP.MaxLength = 5;
             this.tbZIP.Name = "tbZIP";
             this.tbZIP.Size = new System.Drawing.Size(72, 26);
             this.tbZIP.TabIndex = 11;
@@ -230,7 +275,7 @@ namespace SIvPaVS_App
             // 
             this.lbZIP.AutoSize = true;
             this.lbZIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbZIP.Location = new System.Drawing.Point(58, 98);
+            this.lbZIP.Location = new System.Drawing.Point(46, 94);
             this.lbZIP.Name = "lbZIP";
             this.lbZIP.Size = new System.Drawing.Size(43, 18);
             this.lbZIP.TabIndex = 10;
@@ -248,7 +293,7 @@ namespace SIvPaVS_App
             // 
             this.lbCity.AutoSize = true;
             this.lbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCity.Location = new System.Drawing.Point(58, 66);
+            this.lbCity.Location = new System.Drawing.Point(35, 62);
             this.lbCity.Name = "lbCity";
             this.lbCity.Size = new System.Drawing.Size(54, 18);
             this.lbCity.TabIndex = 8;
@@ -266,7 +311,7 @@ namespace SIvPaVS_App
             // 
             this.lbStreet.AutoSize = true;
             this.lbStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStreet.Location = new System.Drawing.Point(58, 34);
+            this.lbStreet.Location = new System.Drawing.Point(44, 30);
             this.lbStreet.Name = "lbStreet";
             this.lbStreet.Size = new System.Drawing.Size(45, 18);
             this.lbStreet.TabIndex = 6;
@@ -275,6 +320,7 @@ namespace SIvPaVS_App
             // tbCompanyTaxNumber
             // 
             this.tbCompanyTaxNumber.Location = new System.Drawing.Point(140, 112);
+            this.tbCompanyTaxNumber.MaxLength = 12;
             this.tbCompanyTaxNumber.Name = "tbCompanyTaxNumber";
             this.tbCompanyTaxNumber.Size = new System.Drawing.Size(388, 30);
             this.tbCompanyTaxNumber.TabIndex = 5;
@@ -286,13 +332,14 @@ namespace SIvPaVS_App
             this.lbCompanyTaxNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCompanyTaxNumber.Location = new System.Drawing.Point(39, 124);
             this.lbCompanyTaxNumber.Name = "lbCompanyTaxNumber";
-            this.lbCompanyTaxNumber.Size = new System.Drawing.Size(37, 18);
+            this.lbCompanyTaxNumber.Size = new System.Drawing.Size(62, 18);
             this.lbCompanyTaxNumber.TabIndex = 4;
-            this.lbCompanyTaxNumber.Text = "DIČ:";
+            this.lbCompanyTaxNumber.Text = "IČ DPH:";
             // 
             // tbCompanyRegNumber
             // 
             this.tbCompanyRegNumber.Location = new System.Drawing.Point(140, 76);
+            this.tbCompanyRegNumber.MaxLength = 8;
             this.tbCompanyRegNumber.Name = "tbCompanyRegNumber";
             this.tbCompanyRegNumber.Size = new System.Drawing.Size(388, 30);
             this.tbCompanyRegNumber.TabIndex = 3;
@@ -302,7 +349,7 @@ namespace SIvPaVS_App
             // 
             this.lbCompanyRegNumber.AutoSize = true;
             this.lbCompanyRegNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCompanyRegNumber.Location = new System.Drawing.Point(39, 88);
+            this.lbCompanyRegNumber.Location = new System.Drawing.Point(63, 84);
             this.lbCompanyRegNumber.Name = "lbCompanyRegNumber";
             this.lbCompanyRegNumber.Size = new System.Drawing.Size(38, 18);
             this.lbCompanyRegNumber.TabIndex = 2;
@@ -320,7 +367,7 @@ namespace SIvPaVS_App
             // 
             this.lbCompanyName.AutoSize = true;
             this.lbCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCompanyName.Location = new System.Drawing.Point(39, 52);
+            this.lbCompanyName.Location = new System.Drawing.Point(46, 48);
             this.lbCompanyName.Name = "lbCompanyName";
             this.lbCompanyName.Size = new System.Drawing.Size(55, 18);
             this.lbCompanyName.TabIndex = 0;
@@ -344,7 +391,7 @@ namespace SIvPaVS_App
             this.outerPanelItems.AutoScroll = true;
             this.outerPanelItems.Controls.Add(this.panelItems);
             this.outerPanelItems.Dock = System.Windows.Forms.DockStyle.Top;
-            this.outerPanelItems.Location = new System.Drawing.Point(0, 407);
+            this.outerPanelItems.Location = new System.Drawing.Point(0, 496);
             this.outerPanelItems.MaximumSize = new System.Drawing.Size(569, 250);
             this.outerPanelItems.Name = "outerPanelItems";
             this.outerPanelItems.Size = new System.Drawing.Size(569, 250);
@@ -367,6 +414,8 @@ namespace SIvPaVS_App
             this.tbTAXPercentage.TabIndex = 9;
             this.tbTAXPercentage.Text = "20";
             this.tbTAXPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTAXPercentage.Validating += new System.ComponentModel.CancelEventHandler(this.eh_TAXPercentageValidation);
+            this.tbTAXPercentage.Validated += new System.EventHandler(this.eh_TAXPercentageValidated);
             // 
             // lbPercentPercentage
             // 
@@ -445,15 +494,15 @@ namespace SIvPaVS_App
             this.lbTotal.TabIndex = 17;
             this.lbTotal.Text = "CELKOM:";
             // 
-            // tbTotal
+            // tbTotalPrice
             // 
-            this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTotal.Location = new System.Drawing.Point(317, 122);
-            this.tbTotal.Name = "tbTotal";
-            this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(167, 30);
-            this.tbTotal.TabIndex = 18;
-            this.tbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotalPrice.Location = new System.Drawing.Point(317, 122);
+            this.tbTotalPrice.Name = "tbTotalPrice";
+            this.tbTotalPrice.ReadOnly = true;
+            this.tbTotalPrice.Size = new System.Drawing.Size(167, 30);
+            this.tbTotalPrice.TabIndex = 18;
+            this.tbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbTotalEUR
             // 
@@ -475,13 +524,13 @@ namespace SIvPaVS_App
             this.gbSummary.Controls.Add(this.lbTAXBaseEUR);
             this.gbSummary.Controls.Add(this.lbTAXPercentage);
             this.gbSummary.Controls.Add(this.tbTAXTotal);
-            this.gbSummary.Controls.Add(this.tbTotal);
+            this.gbSummary.Controls.Add(this.tbTotalPrice);
             this.gbSummary.Controls.Add(this.lbTAXTotalEur);
             this.gbSummary.Controls.Add(this.lbPercentPercentage);
             this.gbSummary.Controls.Add(this.lbTAXBase);
             this.gbSummary.Controls.Add(this.lbTotal);
             this.gbSummary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSummary.Location = new System.Drawing.Point(0, 657);
+            this.gbSummary.Location = new System.Drawing.Point(0, 746);
             this.gbSummary.Name = "gbSummary";
             this.gbSummary.Size = new System.Drawing.Size(569, 174);
             this.gbSummary.TabIndex = 7;
@@ -539,8 +588,6 @@ namespace SIvPaVS_App
         private System.Windows.Forms.Label lbCompanyTaxNumber;
         private System.Windows.Forms.TextBox tbTaxCode;
         private System.Windows.Forms.Label lbTaxCode;
-        private System.Windows.Forms.Label dtDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox gbCompanyAddress;
         private System.Windows.Forms.TextBox tbZIP;
         private System.Windows.Forms.Label lbZIP;
@@ -560,9 +607,14 @@ namespace SIvPaVS_App
         private System.Windows.Forms.TextBox tbTAXTotal;
         private System.Windows.Forms.Label lbTAXTotal;
         private System.Windows.Forms.Label lbTotal;
-        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.TextBox tbTotalPrice;
         private System.Windows.Forms.Label lbTotalEUR;
         private System.Windows.Forms.GroupBox gbSummary;
+        private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.DateTimePicker dtTime;
+        private System.Windows.Forms.CheckBox cbManualTime;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.Label label1;
     }
 }
 

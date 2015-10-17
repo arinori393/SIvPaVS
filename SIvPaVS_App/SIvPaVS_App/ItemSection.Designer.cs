@@ -1,4 +1,6 @@
-﻿namespace SIvPaVS_App
+﻿using System;
+
+namespace SIvPaVS_App
 {
     partial class ItemSection
     {
@@ -38,7 +40,7 @@
             this.lbItemTotalEUR = new System.Windows.Forms.Label();
             this.lbMultiply = new System.Windows.Forms.Label();
             this.lbUnitPriceEUR = new System.Windows.Forms.Label();
-            this.dudItemUnit = new System.Windows.Forms.DomainUpDown();
+            this.cbItemUnit = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbItemName
@@ -57,6 +59,8 @@
             this.tbQuantity.TabIndex = 1;
             this.tbQuantity.Text = "5";
             this.tbQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.eh_DecimalNumberValidation);
+            this.tbQuantity.Validated += new System.EventHandler(this.eh_DecimalNumberValidated);
             // 
             // tbItemtPrice
             // 
@@ -66,6 +70,8 @@
             this.tbItemtPrice.TabIndex = 2;
             this.tbItemtPrice.Text = "5";
             this.tbItemtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbItemtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.eh_DecimalNumberValidation);
+            this.tbItemtPrice.Validated += new System.EventHandler(this.eh_DecimalNumberValidated);
             // 
             // tbItemTotalPrice
             // 
@@ -138,20 +144,20 @@
             this.lbUnitPriceEUR.TabIndex = 9;
             this.lbUnitPriceEUR.Text = "EUR";
             // 
-            // dudItemUnit
+            // cbItemUnit
             // 
-            this.dudItemUnit.Location = new System.Drawing.Point(122, 31);
-            this.dudItemUnit.Name = "dudItemUnit";
-            this.dudItemUnit.ReadOnly = true;
-            this.dudItemUnit.Size = new System.Drawing.Size(58, 22);
-            this.dudItemUnit.TabIndex = 10;
-            this.dudItemUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cbItemUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbItemUnit.FormattingEnabled = true;
+            this.cbItemUnit.Location = new System.Drawing.Point(123, 30);
+            this.cbItemUnit.Name = "cbItemUnit";
+            this.cbItemUnit.Size = new System.Drawing.Size(47, 24);
+            this.cbItemUnit.TabIndex = 11;
             // 
             // ItemSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dudItemUnit);
+            this.Controls.Add(this.cbItemUnit);
             this.Controls.Add(this.lbUnitPriceEUR);
             this.Controls.Add(this.lbMultiply);
             this.Controls.Add(this.lbItemTotalEUR);
@@ -169,6 +175,7 @@
 
         }
 
+       
         #endregion
 
         private System.Windows.Forms.TextBox tbItemName;
@@ -181,6 +188,6 @@
         private System.Windows.Forms.Label lbItemTotalEUR;
         private System.Windows.Forms.Label lbMultiply;
         private System.Windows.Forms.Label lbUnitPriceEUR;
-        private System.Windows.Forms.DomainUpDown dudItemUnit;
+        private System.Windows.Forms.ComboBox cbItemUnit;
     }
 }

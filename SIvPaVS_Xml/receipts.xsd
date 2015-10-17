@@ -17,7 +17,7 @@
 
   <xs:simpleType name="company-reg-numType">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{7}"/>
+      <xs:pattern value="[0-9]{8}"/>
     </xs:restriction>
   </xs:simpleType>
   
@@ -48,7 +48,7 @@
   <xs:complexType name="itemType">
     <xs:sequence>
       <xs:element type="xs:string" name="name"/>
-      <xs:element type="xs:positiveInteger" name="quantity"/>
+      <xs:element type="xs:decimal" name="quantity"/>
       <xs:element type="xs:decimal" name="price"/>
       <xs:element type="quantity-typeType" name="quantity-type"/>
     </xs:sequence>
@@ -63,7 +63,7 @@
   <xs:simpleType name="tax-percentageType">
     <xs:restriction base="xs:integer">
       <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="100"/>
+      <xs:maxInclusive value="99"/>
     </xs:restriction>
   </xs:simpleType>
 

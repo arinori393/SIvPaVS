@@ -13,7 +13,6 @@ D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.e
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.pdb
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\SIvPaVS_App.exe
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\SIvPaVS_App.pdb
-D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csprojResolveAssemblyReference.cache
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.CustomMessageBoxes.form_msg_CreateNew.resources
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.form_Main.resources
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.Properties.Resources.resources
@@ -43,3 +42,4 @@ D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\log4net.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\NHibernate.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\NHibernate.ByteCode.Castle.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.ItemSection.resources
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csprojResolveAssemblyReference.cache
