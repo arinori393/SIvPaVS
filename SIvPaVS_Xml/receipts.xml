@@ -18,18 +18,22 @@
 				<name>rozok</name>
 				<quantity>5</quantity>
 				<price>0.05</price>
+				<quantity-type>ks</quantity-type>
 			</item>
 			<item>
 				<name>mlieko</name>
 				<quantity>1</quantity>
 				<price>0.99</price>
+				<quantity-type>l</quantity-type>
 			</item>
 			<item>
 				<name>vajcia-12ks</name>
 				<quantity>1</quantity>
 				<price>2.30</price>
+				<quantity-type>ks</quantity-type>
 			</item>
 		</items>
+		<tax-percentage>20</tax-percentage>
 		<issued-at>2013-12-02T09:47:12</issued-at>
 		<tax-code>8012023370140001</tax-code>
 	</receipt>
