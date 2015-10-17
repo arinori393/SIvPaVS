@@ -37,26 +37,17 @@ namespace SIvPaVS_App
             lbID.Text = ID.ToString();
             lbAddItem.Visible = isLast;
 
-            f_SetDudItemUnit();
+
+            cbItemUnit.DataSource = Enum.GetValues(typeof(quantitytypeType));
 
             tbItemName.Text = item.name;
             tbItemtPrice.Text = item.price.ToString();
             tbItemTotalPrice.Text = item.TotalItemPrice.ToString();
             tbQuantity.Text = item.quantity.ToString();
+            cbItemUnit.Text = item.quantitytype.ToString();
         }
 
-        private void f_SetDudItemUnit()
-        {
-            //cbItemUnit.Items.Add();
-
-            ComboBox.ObjectCollection items = this.cbItemUnit.Items;
-            items.Add(quantitytypeType.g.ToString());
-            items.Add(quantitytypeType.kg.ToString());
-            items.Add(quantitytypeType.ks.ToString());
-            items.Add(quantitytypeType.l.ToString());
-
-            //cbItemUnit.Text = quantitytypeType.g.ToString();
-        }
+      
 
         #region functions
         internal itemType f_GetEntity()
@@ -70,6 +61,10 @@ namespace SIvPaVS_App
             item.name = tbItemName.Text;
             item.price = decimal.Parse(tbItemtPrice.Text);
             item.quantity = decimal.Parse(tbQuantity.Text);
+
+            quantitytypeType quantytyType;
+            Enum.TryParse<quantitytypeType>(cbItemUnit.SelectedValue.ToString(), out quantytyType);
+            item.quantitytype = quantytyType;
         }
 
         #endregion

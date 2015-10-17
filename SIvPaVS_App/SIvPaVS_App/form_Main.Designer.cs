@@ -213,7 +213,7 @@ namespace SIvPaVS_App
             this.tbTaxCode.TabIndex = 11;
             this.tbTaxCode.Text = "5412145789632547";
             this.tbTaxCode.Validating += new System.ComponentModel.CancelEventHandler(this.eh_TaxCodeValidation);
-            this.tbTaxCode.Validated += new System.EventHandler(this.eh_TaxCodeValidated);
+            this.tbTaxCode.Validated += new System.EventHandler(this.eh_ProviderDataValidated);
             // 
             // lbTaxCode
             // 
@@ -270,6 +270,8 @@ namespace SIvPaVS_App
             this.tbZIP.Size = new System.Drawing.Size(72, 26);
             this.tbZIP.TabIndex = 11;
             this.tbZIP.Text = "018 55";
+            this.tbZIP.Validating += new System.ComponentModel.CancelEventHandler(this.eh_ZIPValidation);
+            this.tbZIP.Validated += new System.EventHandler(this.eh_ProviderDataValidated);
             // 
             // lbZIP
             // 
@@ -324,7 +326,9 @@ namespace SIvPaVS_App
             this.tbCompanyTaxNumber.Name = "tbCompanyTaxNumber";
             this.tbCompanyTaxNumber.Size = new System.Drawing.Size(388, 30);
             this.tbCompanyTaxNumber.TabIndex = 5;
-            this.tbCompanyTaxNumber.Text = "SK2820001611";
+            this.tbCompanyTaxNumber.Text = " ";
+            this.tbCompanyTaxNumber.Validating += new System.ComponentModel.CancelEventHandler(this.eh_TAXNumberValidation);
+            this.tbCompanyTaxNumber.Validated += new System.EventHandler(this.eh_ProviderDataValidated);
             // 
             // lbCompanyTaxNumber
             // 
@@ -344,6 +348,7 @@ namespace SIvPaVS_App
             this.tbCompanyRegNumber.Size = new System.Drawing.Size(388, 30);
             this.tbCompanyRegNumber.TabIndex = 3;
             this.tbCompanyRegNumber.Text = "46 493 115";
+            this.tbCompanyRegNumber.Validating += new System.ComponentModel.CancelEventHandler(this.eh_RegNumberValidation);
             // 
             // lbCompanyRegNumber
             // 

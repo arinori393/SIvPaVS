@@ -327,17 +327,111 @@ namespace SIvPaVS_App
 
         }
 
-        private void eh_TaxCodeValidated(object sender, EventArgs e)
+        private void eh_ProviderDataValidated(object sender, EventArgs e)
         {
             Errors.Clear();
             Receipt.taxcode = (sender as TextBox).Text;
-            f_SetProviderControlsFromEntity();
+            f_SetItemsEntityFromControls();
+
+        }
+
+        private void eh_ZIPValidation(object sender, CancelEventArgs e)
+        {
+            Errors.Clear();
+            TextBox tbSender = sender as TextBox;
+            var strToValidate = tbSender.Text;
+
+            if (strToValidate.Length != 5)
+            {
+                e.Cancel = true;
+                tbSender.Select(0, tbSender.Text.Length);
+                this.Errors.SetError(tbSender, "Nesprávna dĺžka PSČ! (počet číslic musí byť 5)");
+
+            }
+
+
+            for (int i = 0; i < strToValidate.Length; i++)
+            {
+                char[] charDigits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                if (!charDigits.Contains(strToValidate[i]))
+                {
+                    e.Cancel = true;
+                    tbSender.Select(i, 1);
+                    this.Errors.SetError(tbSender, "PSČ musí obsahovať len číslice! ([0-9])");
+
+                }
+            }
+
+        }
+
+        private void eh_RegNumberValidation(object sender, CancelEventArgs e)
+        {
+            Errors.Clear();
+            TextBox tbSender = sender as TextBox;
+            var strToValidate = tbSender.Text;
+           
+            if (strToValidate.Length != 8)
+            {
+                e.Cancel = true;
+                tbSender.Select(0, tbSender.Text.Length);
+                this.Errors.SetError(tbSender, "Nesprávna dĺžka IČO! (počet číslic musí byť 8)");
+
+            }
+
+
+            for (int i = 0; i < strToValidate.Length; i++)
+            {
+                char[] charDigits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                if (!charDigits.Contains(strToValidate[i]))
+                {
+                    e.Cancel = true;
+                    tbSender.Select(i, 1);
+                    this.Errors.SetError(tbSender, "PSČ musí obsahovať len číslice! ([0-9])");
+
+                }
+            }
 
         }
 
 
+        private void eh_TAXNumberValidation(object sender, CancelEventArgs e)
+        {
+            Errors.Clear();
+            TextBox tbSender = sender as TextBox;
+            var strToValidate = tbSender.Text;
 
+            if (strToValidate.Length != 12)
+            {
+                e.Cancel = true;
+                tbSender.Select(0, tbSender.Text.Length);
+                this.Errors.SetError(tbSender, "Nesprávna dĺžka IČ DPH! (počet znakov musí byť 12)");
 
+            }
+
+            var formatError = false;
+            for (int i = 0; i < strToValidate.Length; i++)
+            {
+                if (i < 2)
+                {
+                    if (strToValidate[i] > 90 || strToValidate[i] < 65)
+                        formatError = true;
+                }
+                else
+                {
+                    char[] charDigits = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                    if (!charDigits.Contains(strToValidate[i]))
+                        formatError = true;
+                }
+
+                if (formatError)
+                {
+                    e.Cancel = true;
+                    tbSender.Select(i, 1);
+                    this.Errors.SetError(tbSender, "Nesprávny formát! (Príklad: 'SK0123456789')");
+                    break;
+                }
+            }
+        }
         #endregion
 
         private ErrorProvider Errors = new ErrorProvider();
