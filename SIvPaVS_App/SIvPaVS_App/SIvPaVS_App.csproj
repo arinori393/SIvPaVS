@@ -32,6 +32,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Collections">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Esent.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +98,12 @@
     <Compile Include="form_Main.Designer.cs">
       <DependentUpon>form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemSection.Designer.cs">
+      <DependentUpon>ItemSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomMessageBoxes\form_msg_CreateNew.resx">
@@ -63,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_Main.resx">
       <DependentUpon>form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemSection.resx">
+      <DependentUpon>ItemSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

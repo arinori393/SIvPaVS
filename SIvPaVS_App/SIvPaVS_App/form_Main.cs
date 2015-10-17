@@ -26,6 +26,9 @@ namespace SIvPaVS_App
         // + to iste co pri premennych
         // Priklad: p_str_stringovaVlastnostXY
 
+        public static List<ItemSection> Items;
+
+
         #endregion
 
         #region Constructor
@@ -33,13 +36,62 @@ namespace SIvPaVS_App
         public form_Main()
         {
             InitializeComponent();
+
+
+
+            Items = new List<ItemSection>();
+
+
+            Items.Add(new ItemSection());
+            Items.Add(new ItemSection());
+            Items.Add(new ItemSection());
+
+            f_SetControlsFromEntity();
+
+
+         
         }
 
+
         #endregion
-                
+
         #region Functions
         // Prosim davat kazdej funkcii prefix f_
         // Priklad: f_funkciaXY
+        private void f_SetControlsFromEntity()
+        {
+
+            f_SetItems();
+        }
+
+        private void f_SetItems()
+        {
+            panelItems.Controls.Clear();
+
+            int counter = 0;
+            foreach (var item in Items)
+            {
+
+                item.f_SetControlsFromEntity(counter + 1,this, counter == Items.Count-1);
+                panelItems.Controls.Add(Items[counter++]);
+            }
+        }
+
+        public void f_RemoveItem(int position = 0)
+        {
+            if (position == 0)
+                Items.RemoveAt(0);
+            else
+                Items.RemoveAt(position);
+
+            f_SetItems();
+        }
+
+        internal void f_AddItem()
+        {
+            Items.Add(new ItemSection());
+            f_SetItems();
+        }
 
         #endregion
 

@@ -1,4 +1,6 @@
-﻿namespace SIvPaVS_App
+﻿using System;
+
+namespace SIvPaVS_App
 {
     partial class form_Main
     {
@@ -54,18 +56,26 @@
             this.lbCompanyRegNumber = new System.Windows.Forms.Label();
             this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.lbCompanyName = new System.Windows.Forms.Label();
-            this.gbProducts = new System.Windows.Forms.GroupBox();
-            this.dgwProducts = new System.Windows.Forms.DataGridView();
-            this.clmnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmnTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelItems = new System.Windows.Forms.TableLayoutPanel();
+            this.outerPanelItems = new System.Windows.Forms.Panel();
+            this.lbTAXPercentage = new System.Windows.Forms.Label();
+            this.tbTAXPercentage = new System.Windows.Forms.TextBox();
+            this.lbPercentPercentage = new System.Windows.Forms.Label();
+            this.lbTAXBaseEUR = new System.Windows.Forms.Label();
+            this.tbTAXBase = new System.Windows.Forms.TextBox();
+            this.lbTAXBase = new System.Windows.Forms.Label();
+            this.lbTAXTotalEur = new System.Windows.Forms.Label();
+            this.tbTAXTotal = new System.Windows.Forms.TextBox();
+            this.lbTAXTotal = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.lbTotalEUR = new System.Windows.Forms.Label();
+            this.gbSummary = new System.Windows.Forms.GroupBox();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
             this.gbCompanyAddress.SuspendLayout();
-            this.gbProducts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).BeginInit();
+            this.outerPanelItems.SuspendLayout();
+            this.gbSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // ms_MainMenu
@@ -76,7 +86,7 @@
             this.ms_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.ms_MainMenu.Name = "ms_MainMenu";
             this.ms_MainMenu.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.ms_MainMenu.Size = new System.Drawing.Size(1238, 28);
+            this.ms_MainMenu.Size = new System.Drawing.Size(569, 28);
             this.ms_MainMenu.TabIndex = 0;
             this.ms_MainMenu.Text = "Main Menu";
             // 
@@ -150,7 +160,7 @@
             this.gbCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCompany.Location = new System.Drawing.Point(0, 28);
             this.gbCompany.Name = "gbCompany";
-            this.gbCompany.Size = new System.Drawing.Size(1238, 379);
+            this.gbCompany.Size = new System.Drawing.Size(569, 379);
             this.gbCompany.TabIndex = 4;
             this.gbCompany.TabStop = false;
             this.gbCompany.Text = "Spoločnosť";
@@ -187,9 +197,9 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(260, 303);
+            this.dateTimePicker1.Location = new System.Drawing.Point(267, 303);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(190, 26);
             this.dateTimePicker1.TabIndex = 7;
             // 
             // gbCompanyAddress
@@ -316,86 +326,185 @@
             this.lbCompanyName.TabIndex = 0;
             this.lbCompanyName.Text = "Názov:";
             // 
-            // gbProducts
+            // panelItems
             // 
-            this.gbProducts.Controls.Add(this.dgwProducts);
-            this.gbProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProducts.Location = new System.Drawing.Point(0, 407);
-            this.gbProducts.Name = "gbProducts";
-            this.gbProducts.Size = new System.Drawing.Size(1238, 332);
-            this.gbProducts.TabIndex = 5;
-            this.gbProducts.TabStop = false;
-            this.gbProducts.Text = "Produkty";
+            this.panelItems.AutoSize = true;
+            this.panelItems.ColumnCount = 1;
+            this.panelItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelItems.Location = new System.Drawing.Point(0, 0);
+            this.panelItems.Name = "panelItems";
+            this.panelItems.RowCount = 1;
+            this.panelItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelItems.Size = new System.Drawing.Size(100, 100);
+            this.panelItems.TabIndex = 6;
             // 
-            // dgwProducts
+            // outerPanelItems
             // 
-            this.dgwProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmnId,
-            this.clmnProductName,
-            this.clmnQuantity,
-            this.clmnPrice,
-            this.clmnTotalPrice});
-            this.dgwProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgwProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgwProducts.Location = new System.Drawing.Point(3, 22);
-            this.dgwProducts.Name = "dgwProducts";
-            this.dgwProducts.RowTemplate.Height = 24;
-            this.dgwProducts.Size = new System.Drawing.Size(1232, 217);
-            this.dgwProducts.TabIndex = 0;
+            this.outerPanelItems.AutoScroll = true;
+            this.outerPanelItems.AutoSize = true;
+            this.outerPanelItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.outerPanelItems.Controls.Add(this.panelItems);
+            this.outerPanelItems.Dock = System.Windows.Forms.DockStyle.Top;
+            this.outerPanelItems.Location = new System.Drawing.Point(0, 407);
+            this.outerPanelItems.MaximumSize = new System.Drawing.Size(569, 250);
+            this.outerPanelItems.Name = "outerPanelItems";
+            this.outerPanelItems.Size = new System.Drawing.Size(569, 103);
+            this.outerPanelItems.TabIndex = 7;
             // 
-            // clmnId
+            // lbTAXPercentage
             // 
-            this.clmnId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.clmnId.Frozen = true;
-            this.clmnId.HeaderText = "ID";
-            this.clmnId.MinimumWidth = 50;
-            this.clmnId.Name = "clmnId";
-            this.clmnId.ReadOnly = true;
-            this.clmnId.Width = 57;
+            this.lbTAXPercentage.AutoSize = true;
+            this.lbTAXPercentage.Location = new System.Drawing.Point(218, 23);
+            this.lbTAXPercentage.Name = "lbTAXPercentage";
+            this.lbTAXPercentage.Size = new System.Drawing.Size(93, 17);
+            this.lbTAXPercentage.TabIndex = 8;
+            this.lbTAXPercentage.Text = "Sadzba DPH:";
             // 
-            // clmnProductName
+            // tbTAXPercentage
             // 
-            this.clmnProductName.HeaderText = "Názov";
-            this.clmnProductName.MinimumWidth = 400;
-            this.clmnProductName.Name = "clmnProductName";
-            this.clmnProductName.Width = 400;
+            this.tbTAXPercentage.Location = new System.Drawing.Point(317, 20);
+            this.tbTAXPercentage.Name = "tbTAXPercentage";
+            this.tbTAXPercentage.Size = new System.Drawing.Size(35, 22);
+            this.tbTAXPercentage.TabIndex = 9;
+            this.tbTAXPercentage.Text = "20";
+            this.tbTAXPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // clmnQuantity
+            // lbPercentPercentage
             // 
-            this.clmnQuantity.HeaderText = "Množstvo";
-            this.clmnQuantity.MinimumWidth = 100;
-            this.clmnQuantity.Name = "clmnQuantity";
+            this.lbPercentPercentage.AutoSize = true;
+            this.lbPercentPercentage.Location = new System.Drawing.Point(356, 23);
+            this.lbPercentPercentage.Name = "lbPercentPercentage";
+            this.lbPercentPercentage.Size = new System.Drawing.Size(20, 17);
+            this.lbPercentPercentage.TabIndex = 10;
+            this.lbPercentPercentage.Text = "%";
             // 
-            // clmnPrice
+            // lbTAXBaseEUR
             // 
-            this.clmnPrice.HeaderText = "Cena za MJ";
-            this.clmnPrice.MinimumWidth = 150;
-            this.clmnPrice.Name = "clmnPrice";
-            this.clmnPrice.Width = 150;
+            this.lbTAXBaseEUR.AutoSize = true;
+            this.lbTAXBaseEUR.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTAXBaseEUR.Location = new System.Drawing.Point(418, 51);
+            this.lbTAXBaseEUR.Name = "lbTAXBaseEUR";
+            this.lbTAXBaseEUR.Size = new System.Drawing.Size(37, 17);
+            this.lbTAXBaseEUR.TabIndex = 13;
+            this.lbTAXBaseEUR.Text = "EUR";
             // 
-            // clmnTotalPrice
+            // tbTAXBase
             // 
-            this.clmnTotalPrice.HeaderText = "Celkom";
-            this.clmnTotalPrice.MinimumWidth = 180;
-            this.clmnTotalPrice.Name = "clmnTotalPrice";
-            this.clmnTotalPrice.Width = 180;
+            this.tbTAXBase.Location = new System.Drawing.Point(317, 48);
+            this.tbTAXBase.Name = "tbTAXBase";
+            this.tbTAXBase.ReadOnly = true;
+            this.tbTAXBase.Size = new System.Drawing.Size(95, 22);
+            this.tbTAXBase.TabIndex = 12;
+            this.tbTAXBase.Text = "20";
+            this.tbTAXBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbTAXBase
+            // 
+            this.lbTAXBase.AutoSize = true;
+            this.lbTAXBase.Location = new System.Drawing.Point(223, 51);
+            this.lbTAXBase.Name = "lbTAXBase";
+            this.lbTAXBase.Size = new System.Drawing.Size(88, 17);
+            this.lbTAXBase.TabIndex = 11;
+            this.lbTAXBase.Text = "Základ DPH:";
+            // 
+            // lbTAXTotalEur
+            // 
+            this.lbTAXTotalEur.AutoSize = true;
+            this.lbTAXTotalEur.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTAXTotalEur.Location = new System.Drawing.Point(418, 81);
+            this.lbTAXTotalEur.Name = "lbTAXTotalEur";
+            this.lbTAXTotalEur.Size = new System.Drawing.Size(37, 17);
+            this.lbTAXTotalEur.TabIndex = 16;
+            this.lbTAXTotalEur.Text = "EUR";
+            // 
+            // tbTAXTotal
+            // 
+            this.tbTAXTotal.Location = new System.Drawing.Point(317, 78);
+            this.tbTAXTotal.Name = "tbTAXTotal";
+            this.tbTAXTotal.ReadOnly = true;
+            this.tbTAXTotal.Size = new System.Drawing.Size(95, 22);
+            this.tbTAXTotal.TabIndex = 15;
+            this.tbTAXTotal.Text = "20";
+            this.tbTAXTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbTAXTotal
+            // 
+            this.lbTAXTotal.AutoSize = true;
+            this.lbTAXTotal.Location = new System.Drawing.Point(270, 81);
+            this.lbTAXTotal.Name = "lbTAXTotal";
+            this.lbTAXTotal.Size = new System.Drawing.Size(41, 17);
+            this.lbTAXTotal.TabIndex = 14;
+            this.lbTAXTotal.Text = "DPH:";
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotal.Location = new System.Drawing.Point(200, 125);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(111, 25);
+            this.lbTotal.TabIndex = 17;
+            this.lbTotal.Text = "CELKOM:";
+            // 
+            // tbTotal
+            // 
+            this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotal.Location = new System.Drawing.Point(317, 122);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
+            this.tbTotal.Size = new System.Drawing.Size(167, 30);
+            this.tbTotal.TabIndex = 18;
+            this.tbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbTotalEUR
+            // 
+            this.lbTotalEUR.AutoSize = true;
+            this.lbTotalEUR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalEUR.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTotalEUR.Location = new System.Drawing.Point(490, 125);
+            this.lbTotalEUR.Name = "lbTotalEUR";
+            this.lbTotalEUR.Size = new System.Drawing.Size(55, 25);
+            this.lbTotalEUR.TabIndex = 19;
+            this.lbTotalEUR.Text = "EUR";
+            // 
+            // gbSummary
+            // 
+            this.gbSummary.Controls.Add(this.tbTAXBase);
+            this.gbSummary.Controls.Add(this.tbTAXPercentage);
+            this.gbSummary.Controls.Add(this.lbTAXTotal);
+            this.gbSummary.Controls.Add(this.lbTotalEUR);
+            this.gbSummary.Controls.Add(this.lbTAXBaseEUR);
+            this.gbSummary.Controls.Add(this.lbTAXPercentage);
+            this.gbSummary.Controls.Add(this.tbTAXTotal);
+            this.gbSummary.Controls.Add(this.tbTotal);
+            this.gbSummary.Controls.Add(this.lbTAXTotalEur);
+            this.gbSummary.Controls.Add(this.lbPercentPercentage);
+            this.gbSummary.Controls.Add(this.lbTAXBase);
+            this.gbSummary.Controls.Add(this.lbTotal);
+            this.gbSummary.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbSummary.Location = new System.Drawing.Point(0, 510);
+            this.gbSummary.Name = "gbSummary";
+            this.gbSummary.Size = new System.Drawing.Size(569, 174);
+            this.gbSummary.TabIndex = 7;
+            this.gbSummary.TabStop = false;
             // 
             // form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 824);
-            this.Controls.Add(this.gbProducts);
+            this.ClientSize = new System.Drawing.Size(569, 1045);
+            this.Controls.Add(this.gbSummary);
+            this.Controls.Add(this.outerPanelItems);
             this.Controls.Add(this.gbCompany);
             this.Controls.Add(this.ms_MainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.ms_MainMenu;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1256, 871);
-            this.MinimumSize = new System.Drawing.Size(1256, 871);
+            this.MaximumSize = new System.Drawing.Size(1256, 1800);
+            this.MinimumSize = new System.Drawing.Size(500, 871);
             this.Name = "form_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokladničný blok";
             this.ms_MainMenu.ResumeLayout(false);
             this.ms_MainMenu.PerformLayout();
@@ -403,8 +512,10 @@
             this.gbCompany.PerformLayout();
             this.gbCompanyAddress.ResumeLayout(false);
             this.gbCompanyAddress.PerformLayout();
-            this.gbProducts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwProducts)).EndInit();
+            this.outerPanelItems.ResumeLayout(false);
+            this.outerPanelItems.PerformLayout();
+            this.gbSummary.ResumeLayout(false);
+            this.gbSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,13 +549,21 @@
         private System.Windows.Forms.Label lbCity;
         private System.Windows.Forms.TextBox tbStreet;
         private System.Windows.Forms.Label lbStreet;
-        private System.Windows.Forms.GroupBox gbProducts;
-        private System.Windows.Forms.DataGridView dgwProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmnTotalPrice;
+        private System.Windows.Forms.TableLayoutPanel panelItems;
+        private System.Windows.Forms.Panel outerPanelItems;
+        private System.Windows.Forms.Label lbTAXPercentage;
+        private System.Windows.Forms.TextBox tbTAXPercentage;
+        private System.Windows.Forms.Label lbPercentPercentage;
+        private System.Windows.Forms.Label lbTAXBaseEUR;
+        private System.Windows.Forms.TextBox tbTAXBase;
+        private System.Windows.Forms.Label lbTAXBase;
+        private System.Windows.Forms.Label lbTAXTotalEur;
+        private System.Windows.Forms.TextBox tbTAXTotal;
+        private System.Windows.Forms.Label lbTAXTotal;
+        private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.Label lbTotalEUR;
+        private System.Windows.Forms.GroupBox gbSummary;
     }
 }
 
