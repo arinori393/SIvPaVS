@@ -107,6 +107,7 @@ namespace SIvPaVS_App
         private void eh_DecimalNumberValidated(object sender, EventArgs e)
         {
             Errors.Clear();
+            (sender as TextBox).BackColor = Color.White;
             parentForm.f_SetItemsEntityFromControls();
             parentForm.f_SetItems();
 

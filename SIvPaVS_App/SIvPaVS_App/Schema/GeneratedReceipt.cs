@@ -81,7 +81,7 @@ using System.Xml.Serialization;
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("tax-percentage", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "integer")]
+        [System.Xml.Serialization.XmlElementAttribute("tax-percentage", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "int")]
         public int taxpercentage {
             get {
                 return this.taxpercentageField;
@@ -273,7 +273,7 @@ using System.Xml.Serialization;
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "positiveInteger")]
+        [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "decimal")]
         public decimal quantity {
             get {
                 return this.quantityField;

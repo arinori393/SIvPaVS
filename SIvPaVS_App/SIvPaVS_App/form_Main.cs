@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIvPaVS_App.Schema;
+using System.Xml;
+using System.IO;
 
 namespace SIvPaVS_App
 {
@@ -21,8 +23,8 @@ namespace SIvPaVS_App
         // Priklad: v_premennaXY
         // Este keby sme davali aj prefixi typu premennej, tak by to bolo super
         // Priklad: v_str_stringovaPremennaXY
-        private ReceiptObject Receipt;
-        
+        public ReceiptObject Receipt;
+        private bool Validated;
 
         #endregion
 
@@ -43,7 +45,7 @@ namespace SIvPaVS_App
         {
             InitializeComponent();
             Receipt = new ReceiptObject();
-
+            Validated = false;
 
             ComboBox.ObjectCollection CountryList = this.cbCountry.Items;
             CountryList.AddRange(new string[]  {"Afganistan", "Albánsko", "Alžírsko", "Andorra", "Angola", "Antigua a Barbuda", "Argentína", "Arménsko",
@@ -72,6 +74,7 @@ namespace SIvPaVS_App
                                                 "Uruguaj", "Uzbekistan", "Vanuatu", "Vatikán", "Venezuela", "Vietnam", "Východný Timor", "Zambia", "Západná Sahara",
                                                 "Zimbabwe" });
             cbCountry.Text = "Slovensko";
+            dtTime.Value = DateTime.Now;
             f_SetControlsFromEntity();
 
 
@@ -126,9 +129,9 @@ namespace SIvPaVS_App
                 f_SetProviderControlsFromEntity(Receipt.provider);
 
             if (Receipt.issuedat > dtTime.MaxDate)
-                dtTime.Value = dtTime.MaxDate;
+                dtTime.Value = DateTime.Now; //dtTime.MaxDate;
             else if (Receipt.issuedat < dtTime.MinDate)
-                dtTime.Value = dtTime.MinDate;
+                dtTime.Value = DateTime.Now; //dtTime.MinDate;
             else
                 dtTime.Value = Receipt.issuedat;
             tbTaxCode.Text = Receipt.taxcode;
@@ -160,7 +163,7 @@ namespace SIvPaVS_App
             tbStreet.Text = address.street;
             tbCity.Text = address.city;
             tbZIP.Text = address.zip;
-            cbCountry.Text = address.country;
+            cbCountry.Text = string.IsNullOrEmpty(address.country) ? "Slovensko" : address.country;
 
         }
 
@@ -215,6 +218,67 @@ namespace SIvPaVS_App
             f_SetItems(Receipt.items);
         }
 
+
+        private bool f_ValidateControls(Control parentControl)
+        {
+            bool isValid = true;
+            foreach (Control controlItem in parentControl.Controls)
+            {
+                if (controlItem is TextBox)
+                {
+                    if (string.IsNullOrEmpty(controlItem.Text))
+                    {
+                        controlItem.BackColor = Color.FromArgb(255, 128, 128);
+                        isValid = false;
+                    }
+                    else
+                        controlItem.BackColor = Color.White;
+
+                }
+                else if (controlItem.Controls != null && controlItem.Controls.Count > 0)
+                   isValid = !isValid ? isValid :f_ValidateControls(controlItem);
+
+            }
+
+            return isValid;
+//            throw new NotImplementedException();
+        }
+
+
+
+        private void f_SaveAs(string format)
+        {
+            if (Validated)
+            {
+                string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.name;
+
+                DialogResult result = fbdSelectSavingPlace.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    
+                    file = fbdSelectSavingPlace.SelectedPath + "\\" + file + "." + format.ToLower();
+                    Stream writer = new FileStream(file, FileMode.Create);
+
+                    if (format.ToLower() == "xml")
+                    {
+                        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(Receipt.GetType());
+                        serializer.Serialize(writer, Receipt);
+                    }
+                    writer.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+            else
+                MessageBox.Show("Pred uložením prosím validujte formulár stlačením tlačidla 'Validovať'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+
         #endregion
 
         #region EventHandlers
@@ -228,11 +292,13 @@ namespace SIvPaVS_App
                 if (sender.Equals(tsmi_FileNew))
                 {
                 }
-                else if (sender.Equals(tsmi_FileSave))
-                { 
+                else if (sender.Equals(tsmi_FileSaveXML))
+                {
+                    f_SaveAs("xml");
                 }
-                else if (sender.Equals(tsmi_FileSaveAs))
-                { 
+                else if (sender.Equals(tsmi_FileSaveTXT))
+                {
+                    f_SaveAs("txt");
                 }
                 else if (sender.Equals(tsmi_FileExit))
                 {
@@ -246,7 +312,6 @@ namespace SIvPaVS_App
             
             
         }
-
 
 
 
@@ -331,6 +396,7 @@ namespace SIvPaVS_App
         {
             Errors.Clear();
             Receipt.taxcode = (sender as TextBox).Text;
+            (sender as TextBox).BackColor = Color.White;
             f_SetItemsEntityFromControls();
 
         }
@@ -432,8 +498,25 @@ namespace SIvPaVS_App
                 }
             }
         }
+
+        private void eh_btValidate_Click(object sender, EventArgs e)
+        {
+            f_SetEntityFromControls();
+
+            if (f_ValidateControls(this))
+            {
+                Validated = true;
+                lbAllFieldsRequired.Visible = false;
+
+            }
+            else
+                lbAllFieldsRequired.Visible = true;
+                
+        }
+
         #endregion
 
         private ErrorProvider Errors = new ErrorProvider();
+
     }
 }

@@ -34,8 +34,8 @@ namespace SIvPaVS_App
             this.tsmi_File = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_FileNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_FileSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmi_FileSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_FileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_FileSaveXML = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_FileSaveTXT = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_FileSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_FileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.gbCompany = new System.Windows.Forms.GroupBox();
@@ -74,6 +74,9 @@ namespace SIvPaVS_App
             this.tbTotalPrice = new System.Windows.Forms.TextBox();
             this.lbTotalEUR = new System.Windows.Forms.Label();
             this.gbSummary = new System.Windows.Forms.GroupBox();
+            this.btValidate = new System.Windows.Forms.Button();
+            this.lbAllFieldsRequired = new System.Windows.Forms.Label();
+            this.fbdSelectSavingPlace = new System.Windows.Forms.FolderBrowserDialog();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
             this.gbCompanyAddress.SuspendLayout();
@@ -98,8 +101,8 @@ namespace SIvPaVS_App
             this.tsmi_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_FileNew,
             this.tsmi_FileSeparator1,
-            this.tsmi_FileSave,
-            this.tsmi_FileSaveAs,
+            this.tsmi_FileSaveXML,
+            this.tsmi_FileSaveTXT,
             this.tsmi_FileSeparator2,
             this.tsmi_FileExit});
             this.tsmi_File.Name = "tsmi_File";
@@ -110,39 +113,39 @@ namespace SIvPaVS_App
             // 
             this.tsmi_FileNew.Name = "tsmi_FileNew";
             this.tsmi_FileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.tsmi_FileNew.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_FileNew.Size = new System.Drawing.Size(216, 26);
             this.tsmi_FileNew.Text = "New...";
             this.tsmi_FileNew.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileSeparator1
             // 
             this.tsmi_FileSeparator1.Name = "tsmi_FileSeparator1";
-            this.tsmi_FileSeparator1.Size = new System.Drawing.Size(173, 6);
+            this.tsmi_FileSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
-            // tsmi_FileSave
+            // tsmi_FileSaveXML
             // 
-            this.tsmi_FileSave.Name = "tsmi_FileSave";
-            this.tsmi_FileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.tsmi_FileSave.Size = new System.Drawing.Size(176, 26);
-            this.tsmi_FileSave.Text = "Save";
-            this.tsmi_FileSave.Click += new System.EventHandler(this.eh_tsmi_File_Click);
+            this.tsmi_FileSaveXML.Name = "tsmi_FileSaveXML";
+            this.tsmi_FileSaveXML.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.tsmi_FileSaveXML.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_FileSaveXML.Text = "Save as XML";
+            this.tsmi_FileSaveXML.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
-            // tsmi_FileSaveAs
+            // tsmi_FileSaveTXT
             // 
-            this.tsmi_FileSaveAs.Name = "tsmi_FileSaveAs";
-            this.tsmi_FileSaveAs.Size = new System.Drawing.Size(176, 26);
-            this.tsmi_FileSaveAs.Text = "Save as...";
-            this.tsmi_FileSaveAs.Click += new System.EventHandler(this.eh_tsmi_File_Click);
+            this.tsmi_FileSaveTXT.Name = "tsmi_FileSaveTXT";
+            this.tsmi_FileSaveTXT.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_FileSaveTXT.Text = "Save as TXT";
+            this.tsmi_FileSaveTXT.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileSeparator2
             // 
             this.tsmi_FileSeparator2.Name = "tsmi_FileSeparator2";
-            this.tsmi_FileSeparator2.Size = new System.Drawing.Size(173, 6);
+            this.tsmi_FileSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
             // tsmi_FileExit
             // 
             this.tsmi_FileExit.Name = "tsmi_FileExit";
-            this.tsmi_FileExit.Size = new System.Drawing.Size(176, 26);
+            this.tsmi_FileExit.Size = new System.Drawing.Size(216, 26);
             this.tsmi_FileExit.Text = "Exit";
             this.tsmi_FileExit.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
@@ -541,11 +544,37 @@ namespace SIvPaVS_App
             this.gbSummary.TabIndex = 7;
             this.gbSummary.TabStop = false;
             // 
+            // btValidate
+            // 
+            this.btValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btValidate.ForeColor = System.Drawing.Color.Blue;
+            this.btValidate.Location = new System.Drawing.Point(14, 949);
+            this.btValidate.Name = "btValidate";
+            this.btValidate.Size = new System.Drawing.Size(89, 45);
+            this.btValidate.TabIndex = 7;
+            this.btValidate.Text = "Validuj";
+            this.btValidate.UseVisualStyleBackColor = true;
+            this.btValidate.Click += new System.EventHandler(this.eh_btValidate_Click);
+            // 
+            // lbAllFieldsRequired
+            // 
+            this.lbAllFieldsRequired.AutoSize = true;
+            this.lbAllFieldsRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAllFieldsRequired.ForeColor = System.Drawing.Color.Red;
+            this.lbAllFieldsRequired.Location = new System.Drawing.Point(11, 928);
+            this.lbAllFieldsRequired.Name = "lbAllFieldsRequired";
+            this.lbAllFieldsRequired.Size = new System.Drawing.Size(259, 18);
+            this.lbAllFieldsRequired.TabIndex = 8;
+            this.lbAllFieldsRequired.Text = "ERROR: Všetky polia sú povinné!";
+            this.lbAllFieldsRequired.Visible = false;
+            // 
             // form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 1045);
+            this.Controls.Add(this.lbAllFieldsRequired);
+            this.Controls.Add(this.btValidate);
             this.Controls.Add(this.gbSummary);
             this.Controls.Add(this.outerPanelItems);
             this.Controls.Add(this.gbCompany);
@@ -580,8 +609,8 @@ namespace SIvPaVS_App
         private System.Windows.Forms.ToolStripMenuItem tsmi_File;
         private System.Windows.Forms.ToolStripMenuItem tsmi_FileNew;
         private System.Windows.Forms.ToolStripSeparator tsmi_FileSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_FileSave;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_FileSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_FileSaveXML;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_FileSaveTXT;
         private System.Windows.Forms.ToolStripSeparator tsmi_FileSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tsmi_FileExit;
         private System.Windows.Forms.GroupBox gbCompany;
@@ -620,6 +649,9 @@ namespace SIvPaVS_App
         private System.Windows.Forms.CheckBox cbManualTime;
         private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btValidate;
+        private System.Windows.Forms.Label lbAllFieldsRequired;
+        private System.Windows.Forms.FolderBrowserDialog fbdSelectSavingPlace;
     }
 }
 

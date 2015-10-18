@@ -8,7 +8,7 @@ using SIvPaVS_App.Schema;
 
 namespace SIvPaVS_App.BusinessObjects
 {
-    class ReceiptObject : receiptType
+    public class ReceiptObject : receiptType
     {
         public ReceiptObject() {
             provider = new businessobjectType();
