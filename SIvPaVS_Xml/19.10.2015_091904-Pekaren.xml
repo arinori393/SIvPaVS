@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ReceiptObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <provider>
+    <name>Pekaren</name>
+    <address>
+      <street>Pekarenska</street>
+      <city>Pekarnikovo</city>
+      <zip>98774</zip>
+      <country>Slovensko</country>
+    </address>
+    <company-reg-num>98498465</company-reg-num>
+    <vat-reg-num>SK9876598198</vat-reg-num>
+  </provider>
+  <items>
+    <item>
+      <name>Chlieb</name>
+      <quantity>1</quantity>
+      <price>2.50</price>
+      <quantity-type>ks</quantity-type>
+    </item>
+    <item>
+      <name>Rozky</name>
+      <quantity>8</quantity>
+      <price>0.06</price>
+      <quantity-type>ks</quantity-type>
+    </item>
+  </items>
+  <tax-percentage>10</tax-percentage>
+  <issued-at>2015-10-19T20:11:39.4076913+02:00</issued-at>
+  <tax-code>9872987265409840</tax-code>
+</ReceiptObject>
