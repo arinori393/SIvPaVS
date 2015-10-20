@@ -100,6 +100,7 @@ namespace SIvPaVS_App
 
         private void f_SetReceiptEntityFromControls()
         {
+            isValidated = false;
             Receipt.taxpercentage = int.Parse(tbTAXPercentage.Text);
             Receipt.provider.name = tbCompanyName.Text;
             Receipt.provider.companyregnum = tbCompanyRegNumber.Text;
@@ -242,9 +243,7 @@ namespace SIvPaVS_App
                    isValid = !isValid ? isValid :f_ValidateControls(controlItem);
 
             }
-
             return isValid;
-//            throw new NotImplementedException();
         }
 
 
@@ -264,14 +263,27 @@ namespace SIvPaVS_App
                 {
                     
                     file = fbdSelectSavingPlace.SelectedPath + "\\" + file + "." + format.ToLower();
-                    Stream writer = new FileStream(file, FileMode.Create);
+                    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
 
                     if (format.ToLower() == "xml")
                     {
-                        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
+                        Stream writer = new FileStream(file, FileMode.Create);
                         serializer.Serialize(writer, receipts);
+                        writer.Close();
+
                     }
-                    writer.Close();
+                    else if (format.ToLower() == "txt")
+                    {
+                        XmlToTxtTransformation transformation;
+                        using (StringWriter textWriter = new StringWriter())
+                        {
+                            serializer.Serialize(textWriter, receipts);
+
+                            transformation = new XmlToTxtTransformation(textWriter.ToString(),Resources.XML_to_TXT_XSLT);
+                        }
+                        File.WriteAllText(file, transformation.f_TransformXml());
+                    }
+
                 }
                 else
                 {
@@ -281,7 +293,7 @@ namespace SIvPaVS_App
 
             }
             else
-                MessageBox.Show("Pred uložením prosím validujte formulár stlačením tlačidla 'Validovať'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Pred uložením prosím validujte formulár stlačením tlačidla 'Validuj'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -301,6 +313,7 @@ namespace SIvPaVS_App
                 {
                     MessageBox.Show("Vybratý XML súbor je validný!", "XSD Validation OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     f_serializeXmlToReceiptObject();
+                    isValidated = true;
                 }                
 
             }//var file = ofdLoadXml.
@@ -337,7 +350,7 @@ namespace SIvPaVS_App
         protected bool f_validateXML(string nameSpace, string filePath)
         {
             XmlSchemaSet schemas = new XmlSchemaSet();
-            schemas.Add("", XmlReader.Create(new StringReader(XSDResource.receipts)));
+            schemas.Add("", XmlReader.Create(new StringReader(Resources.receipts)));
 
 
             XmlReaderSettings settings = new XmlReaderSettings();
@@ -377,6 +390,15 @@ namespace SIvPaVS_App
             {
                 if (sender.Equals(tsmi_FileNew))
                 {
+                    DialogResult dialogResult = MessageBox.Show("Chcete ulžiť aktuálne vyplnený formulár?", "Uložiť?", MessageBoxButtons.YesNoCancel);
+
+                    if (dialogResult == DialogResult.Cancel)
+                        return;
+                    else if(dialogResult == DialogResult.Yes)
+                        f_SaveAs("xml");
+
+                    Receipt = new receiptType();
+                    f_SetControlsFromEntity();
                 }
                 else if (sender.Equals(tsmi_FileSaveXML))
                 {
@@ -477,7 +499,6 @@ namespace SIvPaVS_App
 
                 }
             }
-
         }
 
         private void eh_ProviderDataValidated(object sender, EventArgs e)
@@ -485,7 +506,8 @@ namespace SIvPaVS_App
             Errors.Clear();
             Receipt.taxcode = (sender as TextBox).Text;
             (sender as TextBox).BackColor = Color.White;
-            f_SetItemsEntityFromControls();
+            //f_SetItemsEntityFromControls();
+            f_SetReceiptEntityFromControls();
 
         }
 
@@ -515,7 +537,6 @@ namespace SIvPaVS_App
 
                 }
             }
-
         }
 
         private void eh_RegNumberValidation(object sender, CancelEventArgs e)
@@ -604,6 +625,11 @@ namespace SIvPaVS_App
                 
         }
 
+        private void eh_ReceiptValueValidate(object sender, CancelEventArgs e)
+        {
+            f_SetReceiptEntityFromControls();
+
+        }
         #endregion
 
         private ErrorProvider Errors = new ErrorProvider();

@@ -22,14 +22,14 @@ namespace SIvPaVS_App {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class XSDResource {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal XSDResource() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SIvPaVS_App {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SIvPaVS_App.XSDResource", typeof(XSDResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SIvPaVS_App.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -81,6 +81,27 @@ namespace SIvPaVS_App {
         internal static string receipts {
             get {
                 return ResourceManager.GetString("receipts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///
+        ///&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:ex=&quot;http://exslt.org/common&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+        ///  &lt;xsl:output method=&quot;text&quot;/&gt;
+        ///
+        ///  &lt;xsl:template match=&quot;text()&quot; /&gt;
+        ///  
+        ///  &lt;xsl:template match=&quot;ReceiptObject&quot;&gt;
+        ///      &lt;xsl:text&gt;&amp;#09;&amp;#09;Pokladničný blok&amp;#xd;&amp;#xd;&lt;/xsl:text&gt;
+        ///    
+        ///      &lt;xsl:apply-templates select=&quot;provider&quot;/&gt;
+        ///    
+        ///      &lt;xsl:text&gt;&amp;#xd;Čas:&amp;#09;&amp;#09;&amp;#09;&amp;#09;&amp;#09;&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;issued-at&quot;/&gt;&lt;xsl:text&gt;&amp;#xd;&lt;/xsl:t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XML_to_TXT_XSLT {
+            get {
+                return ResourceManager.GetString("XML_to_TXT_XSLT", resourceCulture);
             }
         }
     }

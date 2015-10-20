@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<receipts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <receipt id="1">
+    <provider>
+      <name>JMG Agro, s.r.o.</name>
+      <address>
+        <street>Tuchyňa 108</street>
+        <city>Tuchyňa</city>
+        <zip>01855</zip>
+        <country>Slovensko</country>
+      </address>
+      <company-reg-num>46493115</company-reg-num>
+      <vat-reg-num>SK6666666666</vat-reg-num>
+    </provider>
+    <items>
+      <item>
+        <name>33333333333</name>
+        <quantity>40</quantity>
+        <price>30</price>
+        <quantity-type>l</quantity-type>
+      </item>
+      <item>
+        <name>44444</name>
+        <quantity>50</quantity>
+        <price>60</price>
+        <quantity-type>l</quantity-type>
+      </item>
+    </items>
+    <tax-percentage>20</tax-percentage>
+    <issued-at>2015-10-20T22:56:42.3591986+02:00</issued-at>
+    <tax-code>5412145789632547</tax-code>
+  </receipt>
+</receipts>

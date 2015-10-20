@@ -32,6 +32,7 @@ namespace SIvPaVS_App
         {
             this.ms_MainMenu = new System.Windows.Forms.MenuStrip();
             this.tsmi_File = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Open = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_FileNew = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_FileSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_FileSaveXML = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +78,6 @@ namespace SIvPaVS_App
             this.btValidate = new System.Windows.Forms.Button();
             this.lbAllFieldsRequired = new System.Windows.Forms.Label();
             this.fbdSelectSavingPlace = new System.Windows.Forms.FolderBrowserDialog();
-            this.tsmi_Open = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdLoadXml = new System.Windows.Forms.OpenFileDialog();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
@@ -111,6 +111,13 @@ namespace SIvPaVS_App
             this.tsmi_File.Name = "tsmi_File";
             this.tsmi_File.Size = new System.Drawing.Size(44, 24);
             this.tsmi_File.Text = "File";
+            // 
+            // tsmi_Open
+            // 
+            this.tsmi_Open.Name = "tsmi_Open";
+            this.tsmi_Open.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_Open.Text = "Open...";
+            this.tsmi_Open.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // tsmi_FileNew
             // 
@@ -296,6 +303,7 @@ namespace SIvPaVS_App
             this.tbCity.Size = new System.Drawing.Size(353, 26);
             this.tbCity.TabIndex = 9;
             this.tbCity.Text = "Tuchyňa";
+            this.tbCity.Validating += new System.ComponentModel.CancelEventHandler(this.eh_ReceiptValueValidate);
             // 
             // lbCity
             // 
@@ -314,6 +322,7 @@ namespace SIvPaVS_App
             this.tbStreet.Size = new System.Drawing.Size(353, 26);
             this.tbStreet.TabIndex = 7;
             this.tbStreet.Text = "Tuchyňa 108";
+            this.tbStreet.Validating += new System.ComponentModel.CancelEventHandler(this.eh_ReceiptValueValidate);
             // 
             // lbStreet
             // 
@@ -373,6 +382,7 @@ namespace SIvPaVS_App
             this.tbCompanyName.Size = new System.Drawing.Size(388, 30);
             this.tbCompanyName.TabIndex = 1;
             this.tbCompanyName.Text = "JMG Agro, s.r.o.";
+            this.tbCompanyName.Validating += new System.ComponentModel.CancelEventHandler(this.eh_ReceiptValueValidate);
             // 
             // lbCompanyName
             // 
@@ -570,13 +580,6 @@ namespace SIvPaVS_App
             this.lbAllFieldsRequired.TabIndex = 8;
             this.lbAllFieldsRequired.Text = "ERROR: Všetky polia sú povinné!";
             this.lbAllFieldsRequired.Visible = false;
-            // 
-            // tsmi_Open
-            // 
-            this.tsmi_Open.Name = "tsmi_Open";
-            this.tsmi_Open.Size = new System.Drawing.Size(216, 26);
-            this.tsmi_Open.Text = "Open...";
-            this.tsmi_Open.Click += new System.EventHandler(this.eh_tsmi_File_Click);
             // 
             // ofdLoadXml
             // 
