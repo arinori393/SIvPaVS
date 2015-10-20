@@ -1,0 +1,28 @@
+﻿		Pokladničný blok
+
+Spoločnosť
+  Názov:	JMG Agro, s.r.o.
+  IČO:		46493115
+  IČ DPH:	SK6666666666
+
+  Adresa
+    Ulica:	Tuchyňa 108
+    Mesto:	Tuchyňa
+    PSČ:	01855
+    Štát:	Slovensko
+
+Čas:					2015-10-20T22:56:42.3591986+02:00
+Kód reg. pokladnice:	5412145789632547
+
+33333333333
+  40 l  x  30 EUR  .....  1200 EUR
+
+44444
+  50 l  x  60 EUR  .....  3000 EUR
+
+
+Sadzba DPH:	20 %
+Základ DPH:	3360 EUR
+DPH:		840 EUR
+
+CELKOM:		4200 EUR

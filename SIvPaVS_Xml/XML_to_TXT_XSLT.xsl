@@ -5,7 +5,7 @@
 
   <xsl:template match="text()" />
   
-  <xsl:template match="ReceiptObject">
+  <xsl:template match="receipt">
       <xsl:text>&#09;&#09;Pokladničný blok&#xd;&#xd;</xsl:text>
     
       <xsl:apply-templates select="provider"/>
