@@ -47,6 +47,30 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Ditec.Zep.DSigXades, Version=3.0.0.0, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.dll</HintPath>
+    </Reference>
+    <Reference Include="Ditec.Zep.DSigXades.Core, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ditec.Zep.DSigXades.PdfPlugin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.PdfPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Ditec.Zep.DSigXades.PngPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.PngPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Ditec.Zep.DSigXades.TxtPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.TxtPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Ditec.Zep.DSigXades.XmlPlugin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=7b8b3564548fe47e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\Ditec.Zep.DSigXades.XmlPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="Esent.Collections">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Esent.Collections.dll</HintPath>
     </Reference>
@@ -71,8 +95,15 @@
     <Reference Include="NHibernate.ByteCode.Castle">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
+    <Reference Include="NPSetupInstallerClass">
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\NPSetupInstallerClass.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFNet, Version=6.1.1.21853, Culture=neutral, PublicKeyToken=36167be3f67ac39c, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\PDFNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -110,6 +141,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema\GeneratedReceipt.cs" />
+    <Compile Include="Signer.cs" />
     <Compile Include="XmlToTxtTransformation.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -153,6 +185,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\XML_to_TXT_XSLT.xsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Ditec_Zep_DSigXadesAtl">
+      <Guid>{210BE412-8046-4C29-A233-11B0E8BC0EE1}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Ditec_Zep_DSigXades_PdfPluginAtl">
+      <Guid>{7F2D15CB-8025-4CC7-979B-C5AB7F0D6E6F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Ditec_Zep_DSigXades_PngPluginAtl">
+      <Guid>{0BD5C4BC-FBC6-4669-8CF1-872BEB0F50AA}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Ditec_Zep_DSigXades_TxtPluginAtl">
+      <Guid>{8C1C6663-16CF-4038-9DF2-33EE44156BE5}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Ditec_Zep_DSigXades_XmlPluginAtl">
+      <Guid>{EB81883D-6AE9-46D8-BC1E-1CE290FB88E1}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DSigXadesFbLib">
+      <Guid>{278297A4-484B-58C5-B3D7-C34BBAC93DA0}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

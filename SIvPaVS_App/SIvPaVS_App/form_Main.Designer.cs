@@ -79,6 +79,7 @@ namespace SIvPaVS_App
             this.lbAllFieldsRequired = new System.Windows.Forms.Label();
             this.fbdSelectSavingPlace = new System.Windows.Forms.FolderBrowserDialog();
             this.ofdLoadXml = new System.Windows.Forms.OpenFileDialog();
+            this.btSign = new System.Windows.Forms.Button();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
             this.gbCompanyAddress.SuspendLayout();
@@ -585,11 +586,24 @@ namespace SIvPaVS_App
             // 
             this.ofdLoadXml.FileName = "openFileDialog1";
             // 
+            // btSign
+            // 
+            this.btSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSign.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btSign.Location = new System.Drawing.Point(447, 949);
+            this.btSign.Name = "btSign";
+            this.btSign.Size = new System.Drawing.Size(112, 45);
+            this.btSign.TabIndex = 9;
+            this.btSign.Text = "Podpísať";
+            this.btSign.UseVisualStyleBackColor = true;
+            this.btSign.Click += new System.EventHandler(this.eh_btSign_Click);
+            // 
             // form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 1045);
+            this.Controls.Add(this.btSign);
             this.Controls.Add(this.lbAllFieldsRequired);
             this.Controls.Add(this.btValidate);
             this.Controls.Add(this.gbSummary);
@@ -671,6 +685,7 @@ namespace SIvPaVS_App
         private System.Windows.Forms.FolderBrowserDialog fbdSelectSavingPlace;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Open;
         private System.Windows.Forms.OpenFileDialog ofdLoadXml;
+        private System.Windows.Forms.Button btSign;
     }
 }
 

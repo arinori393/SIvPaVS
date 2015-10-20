@@ -28,6 +28,7 @@ namespace SIvPaVS_App
         public receiptType Receipt;
         private bool isValidated;
         private XmlDocument document;
+        private string signedXml;
 
         #endregion
 
@@ -377,7 +378,43 @@ namespace SIvPaVS_App
             }
         }
 
-      
+
+
+        private void f_SignXml()
+        {
+            if (isValidated)
+            {
+                var receipts = new receiptsType();
+                receipts.receipt = Receipt;
+                Receipt.id = "1";
+
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
+
+                
+                using (StringWriter textWriter = new StringWriter())
+                        {
+
+                    serializer.Serialize(textWriter, receipts);
+                    
+                    XmlDocument doc = new XmlDocument();
+
+                    doc.InnerXml = textWriter.ToString();
+
+
+                    Signer signer = new Signer(doc.InnerXml.ToString());
+                    signedXml = signer.SignXml();
+                        }
+
+
+            }
+            else
+                MessageBox.Show("Pred podpísaním prosím validujte formulár stlačením tlačidla 'Validuj'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
+
+        }
+
         #endregion
 
         #region EventHandlers
@@ -630,9 +667,14 @@ namespace SIvPaVS_App
             f_SetReceiptEntityFromControls();
 
         }
-        #endregion
-
+       
         private ErrorProvider Errors = new ErrorProvider();
+
+        private void eh_btSign_Click(object sender, EventArgs e)
+        {
+            f_SignXml();
+        }
+ #endregion
 
     }
 }
