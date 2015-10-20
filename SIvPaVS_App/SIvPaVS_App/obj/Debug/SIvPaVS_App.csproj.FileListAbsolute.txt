@@ -42,4 +42,5 @@ D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\log4net.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\NHibernate.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\NHibernate.ByteCode.Castle.xml
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.ItemSection.resources
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.XSDResource.resources
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csprojResolveAssemblyReference.cache

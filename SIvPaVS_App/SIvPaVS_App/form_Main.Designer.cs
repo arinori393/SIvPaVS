@@ -77,6 +77,8 @@ namespace SIvPaVS_App
             this.btValidate = new System.Windows.Forms.Button();
             this.lbAllFieldsRequired = new System.Windows.Forms.Label();
             this.fbdSelectSavingPlace = new System.Windows.Forms.FolderBrowserDialog();
+            this.tsmi_Open = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofdLoadXml = new System.Windows.Forms.OpenFileDialog();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
             this.gbCompanyAddress.SuspendLayout();
@@ -99,6 +101,7 @@ namespace SIvPaVS_App
             // tsmi_File
             // 
             this.tsmi_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_Open,
             this.tsmi_FileNew,
             this.tsmi_FileSeparator1,
             this.tsmi_FileSaveXML,
@@ -568,6 +571,17 @@ namespace SIvPaVS_App
             this.lbAllFieldsRequired.Text = "ERROR: Všetky polia sú povinné!";
             this.lbAllFieldsRequired.Visible = false;
             // 
+            // tsmi_Open
+            // 
+            this.tsmi_Open.Name = "tsmi_Open";
+            this.tsmi_Open.Size = new System.Drawing.Size(216, 26);
+            this.tsmi_Open.Text = "Open...";
+            this.tsmi_Open.Click += new System.EventHandler(this.eh_tsmi_File_Click);
+            // 
+            // ofdLoadXml
+            // 
+            this.ofdLoadXml.FileName = "openFileDialog1";
+            // 
             // form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -652,6 +666,8 @@ namespace SIvPaVS_App
         private System.Windows.Forms.Button btValidate;
         private System.Windows.Forms.Label lbAllFieldsRequired;
         private System.Windows.Forms.FolderBrowserDialog fbdSelectSavingPlace;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Open;
+        private System.Windows.Forms.OpenFileDialog ofdLoadXml;
     }
 }
 

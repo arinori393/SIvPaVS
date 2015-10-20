@@ -110,6 +110,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema\GeneratedReceipt.cs" />
+    <Compile Include="XSDResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XSDResource.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomMessageBoxes\form_msg_CreateNew.resx">
       <DependentUpon>form_msg_CreateNew.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +133,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="XSDResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XSDResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

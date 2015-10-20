@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIvPaVS_App.Schema;
 using SIvPaVS_App.BusinessObjects;
 
 namespace SIvPaVS_App

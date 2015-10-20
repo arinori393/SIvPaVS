@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SIvPaVS_App.Schema;
+
 
 namespace SIvPaVS_App.BusinessObjects
 {
-    public class ReceiptObject : receiptType
+    public partial class receiptType
     {
-        public ReceiptObject() {
+        public receiptType() {
             provider = new businessobjectType();
             provider.address = new addressType();
         }

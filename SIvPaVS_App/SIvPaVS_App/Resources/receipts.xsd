@@ -1,0 +1,95 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="zipType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="addressType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="street"/>
+      <xs:element type="xs:string" name="city"/>
+      <xs:element type="zipType" name="zip"/>
+      <xs:element type="xs:string" name="country"/>
+    </xs:sequence>  
+  </xs:complexType>
+
+  <xs:simpleType name="company-reg-numType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{8}"/>
+    </xs:restriction> 
+  </xs:simpleType>
+  
+  <xs:simpleType name="vat-reg-numType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z][A-Z][0-9]{10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="business-objectType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="addressType" name="address"/>
+      <xs:element type="company-reg-numType" name="company-reg-num"/>
+      <xs:element type="vat-reg-numType" name="vat-reg-num"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="quantity-typeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="l"/>
+      <xs:enumeration value="kg"/>
+      <xs:enumeration value="g"/>
+      <xs:enumeration value="ks"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:decimal" name="quantity"/>
+      <xs:element type="xs:decimal" name="price"/>
+      <xs:element type="quantity-typeType" name="quantity-type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="itemsType">
+    <xs:sequence>
+      <xs:element type="itemType" name="item" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="tax-percentageType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tax-codeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{16}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="receiptType">
+    <xs:sequence>
+      <xs:element type="business-objectType" name="provider"/>
+      <xs:element type="itemsType" name="items"/>
+      <xs:element type="tax-percentageType" name="tax-percentage"/>
+      <xs:element type="xs:dateTime" name="issued-at"/>
+      <xs:element type="tax-codeType" name="tax-code"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="receiptsType">
+    <xs:sequence>
+      <xs:element type="receiptType" name="receipt"/>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:element type="receiptsType" name="receipts"/>
+
+</xs:schema>

@@ -8,9 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIvPaVS_App.Schema;
 using System.Xml;
 using System.IO;
+using System.Xml.Schema;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace SIvPaVS_App
 {
@@ -23,8 +25,9 @@ namespace SIvPaVS_App
         // Priklad: v_premennaXY
         // Este keby sme davali aj prefixi typu premennej, tak by to bolo super
         // Priklad: v_str_stringovaPremennaXY
-        public ReceiptObject Receipt;
-        private bool Validated;
+        public receiptType Receipt;
+        private bool isValidated;
+        private XmlDocument document;
 
         #endregion
 
@@ -44,8 +47,8 @@ namespace SIvPaVS_App
         public form_Main()
         {
             InitializeComponent();
-            Receipt = new ReceiptObject();
-            Validated = false;
+            Receipt = new receiptType();
+            isValidated = false;
 
             ComboBox.ObjectCollection CountryList = this.cbCountry.Items;
             CountryList.AddRange(new string[]  {"Afganistan", "Albánsko", "Alžírsko", "Andorra", "Angola", "Antigua a Barbuda", "Argentína", "Arménsko",
@@ -248,8 +251,12 @@ namespace SIvPaVS_App
 
         private void f_SaveAs(string format)
         {
-            if (Validated)
+            if (isValidated)
             {
+                var receipts = new receiptsType();
+                receipts.receipt = Receipt;
+                Receipt.id = "1";
+
                 string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.name;
 
                 DialogResult result = fbdSelectSavingPlace.ShowDialog();
@@ -261,8 +268,8 @@ namespace SIvPaVS_App
 
                     if (format.ToLower() == "xml")
                     {
-                        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(Receipt.GetType());
-                        serializer.Serialize(writer, Receipt);
+                        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
+                        serializer.Serialize(writer, receipts);
                     }
                     writer.Close();
                 }
@@ -279,6 +286,85 @@ namespace SIvPaVS_App
         }
 
 
+
+        private void f_LoadReceiptFromXml()
+        {
+
+            Receipt = new receiptType();
+
+            ofdLoadXml.Filter = "XML Files (*.xml)|*.xml";
+            DialogResult result = ofdLoadXml.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                if (f_validateXML("http://www.w3.org/2001/XMLSchema", ofdLoadXml.FileName))
+                {
+                    MessageBox.Show("Vybratý XML súbor je validný!", "XSD Validation OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    f_serializeXmlToReceiptObject();
+                }                
+
+            }//var file = ofdLoadXml.
+            else
+                MessageBox.Show("Nastala chyba pri načítavaní súboru!","ERROR!",MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            f_SetControlsFromEntity() ;
+        }
+
+        private void f_serializeXmlToReceiptObject()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(receiptsType));
+            using (TextReader reader = new StringReader(document.InnerXml))
+            {
+                receiptsType result = (receiptsType)serializer.Deserialize(reader);
+                Receipt = result.receipt;
+            }
+        }
+
+        private static void ValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            switch (e.Severity)
+            {
+                case XmlSeverityType.Error:
+                    Console.WriteLine("Error: {0}", e.Message);
+                    break;
+                case XmlSeverityType.Warning:
+                    Console.WriteLine("Warning {0}", e.Message);
+                    break;
+            }
+
+        }
+
+        protected bool f_validateXML(string nameSpace, string filePath)
+        {
+            XmlSchemaSet schemas = new XmlSchemaSet();
+            schemas.Add("", XmlReader.Create(new StringReader(XSDResource.receipts)));
+
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.Schemas.Add(schemas);
+            settings.ValidationType = ValidationType.Schema;
+
+            XmlReader reader = XmlReader.Create(filePath, settings);
+            document = new XmlDocument();
+
+            try
+            {
+                document.Load(reader);
+
+                ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
+
+                // the following call to Validate succeeds.
+                document.Validate(eventHandler);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "XML nie je validné!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+      
         #endregion
 
         #region EventHandlers
@@ -304,6 +390,10 @@ namespace SIvPaVS_App
                 {
                     this.Close();
                 }
+                else if (sender.Equals(tsmi_Open))
+                {
+                    f_LoadReceiptFromXml();
+                }
             }
             catch (Exception exc) 
             {
@@ -312,8 +402,6 @@ namespace SIvPaVS_App
             
             
         }
-
-
 
         private void cbManualTime_CheckedChanged(object sender, EventArgs e)
         {
@@ -505,8 +593,10 @@ namespace SIvPaVS_App
 
             if (f_ValidateControls(this))
             {
-                Validated = true;
+                isValidated = true;
                 lbAllFieldsRequired.Visible = false;
+                MessageBox.Show("Vyplnený formulár je validný!", "Validácia úspešná!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
             }
             else
