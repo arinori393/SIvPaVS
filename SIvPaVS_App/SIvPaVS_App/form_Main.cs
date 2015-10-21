@@ -231,7 +231,7 @@ namespace SIvPaVS_App
             {
                 if (controlItem is TextBox)
                 {
-                    if ((controlItem.BackColor == Color.FromArgb(255, 128, 128)) || (controlItem.BackColor == Color.FromArgb(255, 128, 128)))
+                    if ((controlItem.BackColor == Color.FromArgb(255, 128, 128)) || controlItem.BackColor == SystemColors.Window)
                     {
                         if (string.IsNullOrEmpty(controlItem.Text))
                         {
