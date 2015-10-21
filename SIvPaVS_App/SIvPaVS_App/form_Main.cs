@@ -231,14 +231,16 @@ namespace SIvPaVS_App
             {
                 if (controlItem is TextBox)
                 {
-                    if (string.IsNullOrEmpty(controlItem.Text))
+                    if ((controlItem.BackColor == Color.FromArgb(255, 128, 128)) || (controlItem.BackColor == Color.FromArgb(255, 128, 128)))
                     {
-                        controlItem.BackColor = Color.FromArgb(255, 128, 128);
-                        isValid = false;
+                        if (string.IsNullOrEmpty(controlItem.Text))
+                        {
+                            controlItem.BackColor = Color.FromArgb(255, 128, 128);
+                            isValid = false;
+                        }
+                        else
+                            controlItem.BackColor = SystemColors.Window; //Color.ReferenceEquals.;
                     }
-                    else
-                        controlItem.BackColor = Color.White;
-
                 }
                 else if (controlItem.Controls != null && controlItem.Controls.Count > 0)
                    isValid = !isValid ? isValid :f_ValidateControls(controlItem);
@@ -427,7 +429,7 @@ namespace SIvPaVS_App
             {
                 if (sender.Equals(tsmi_FileNew))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Chcete ulžiť aktuálne vyplnený formulár?", "Uložiť?", MessageBoxButtons.YesNoCancel);
+                    DialogResult dialogResult = MessageBox.Show("Chcete uložiť aktuálne vyplnený formulár?", "Uložiť?", MessageBoxButtons.YesNoCancel);
 
                     if (dialogResult == DialogResult.Cancel)
                         return;

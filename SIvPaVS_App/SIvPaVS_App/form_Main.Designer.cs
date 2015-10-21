@@ -416,7 +416,7 @@ namespace SIvPaVS_App
             this.outerPanelItems.Location = new System.Drawing.Point(0, 496);
             this.outerPanelItems.MaximumSize = new System.Drawing.Size(569, 250);
             this.outerPanelItems.Name = "outerPanelItems";
-            this.outerPanelItems.Size = new System.Drawing.Size(569, 250);
+            this.outerPanelItems.Size = new System.Drawing.Size(569, 212);
             this.outerPanelItems.TabIndex = 7;
             // 
             // lbTAXPercentage
@@ -552,7 +552,7 @@ namespace SIvPaVS_App
             this.gbSummary.Controls.Add(this.lbTAXBase);
             this.gbSummary.Controls.Add(this.lbTotal);
             this.gbSummary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSummary.Location = new System.Drawing.Point(0, 746);
+            this.gbSummary.Location = new System.Drawing.Point(0, 708);
             this.gbSummary.Name = "gbSummary";
             this.gbSummary.Size = new System.Drawing.Size(569, 174);
             this.gbSummary.TabIndex = 7;
@@ -562,7 +562,7 @@ namespace SIvPaVS_App
             // 
             this.btValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btValidate.ForeColor = System.Drawing.Color.Blue;
-            this.btValidate.Location = new System.Drawing.Point(14, 949);
+            this.btValidate.Location = new System.Drawing.Point(12, 918);
             this.btValidate.Name = "btValidate";
             this.btValidate.Size = new System.Drawing.Size(89, 45);
             this.btValidate.TabIndex = 7;
@@ -575,22 +575,18 @@ namespace SIvPaVS_App
             this.lbAllFieldsRequired.AutoSize = true;
             this.lbAllFieldsRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAllFieldsRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbAllFieldsRequired.Location = new System.Drawing.Point(11, 928);
+            this.lbAllFieldsRequired.Location = new System.Drawing.Point(9, 897);
             this.lbAllFieldsRequired.Name = "lbAllFieldsRequired";
             this.lbAllFieldsRequired.Size = new System.Drawing.Size(259, 18);
             this.lbAllFieldsRequired.TabIndex = 8;
             this.lbAllFieldsRequired.Text = "ERROR: Všetky polia sú povinné!";
             this.lbAllFieldsRequired.Visible = false;
             // 
-            // ofdLoadXml
-            // 
-            this.ofdLoadXml.FileName = "openFileDialog1";
-            // 
             // btSign
             // 
             this.btSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSign.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btSign.Location = new System.Drawing.Point(447, 949);
+            this.btSign.Location = new System.Drawing.Point(445, 918);
             this.btSign.Name = "btSign";
             this.btSign.Size = new System.Drawing.Size(112, 45);
             this.btSign.TabIndex = 9;
@@ -602,7 +598,7 @@ namespace SIvPaVS_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 1045);
+            this.ClientSize = new System.Drawing.Size(569, 975);
             this.Controls.Add(this.btSign);
             this.Controls.Add(this.lbAllFieldsRequired);
             this.Controls.Add(this.btValidate);
