@@ -288,6 +288,10 @@ namespace SIvPaVS_App
                     }
 
                 }
+                else if (result == DialogResult.Cancel)
+                {
+                    
+                }
                 else
                 {
                     MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
