@@ -58,8 +58,16 @@ namespace SIvPaVS_App
         private void f_SetEntityFromControls()
         {
             item.name = tbItemName.Text;
-            item.price = decimal.Parse(tbItemtPrice.Text);
-            item.quantity = decimal.Parse(tbQuantity.Text);
+            try
+            {
+                item.price = decimal.Parse(tbItemtPrice.Text);
+            }
+            catch { item.price = 0; }
+            try
+            {
+                item.quantity = decimal.Parse(tbQuantity.Text);
+            }
+            catch { item.price = 0; }
 
             quantitytypeType quantytyType;
             Enum.TryParse<quantitytypeType>(cbItemUnit.SelectedValue.ToString(), out quantytyType);

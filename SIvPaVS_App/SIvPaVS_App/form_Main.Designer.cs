@@ -178,7 +178,7 @@ namespace SIvPaVS_App
             this.gbCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCompany.Location = new System.Drawing.Point(0, 28);
             this.gbCompany.Name = "gbCompany";
-            this.gbCompany.Size = new System.Drawing.Size(569, 468);
+            this.gbCompany.Size = new System.Drawing.Size(569, 416);
             this.gbCompany.TabIndex = 4;
             this.gbCompany.TabStop = false;
             this.gbCompany.Text = "Spoločnosť";
@@ -187,7 +187,7 @@ namespace SIvPaVS_App
             // 
             this.cbManualTime.AutoSize = true;
             this.cbManualTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbManualTime.Location = new System.Drawing.Point(166, 365);
+            this.cbManualTime.Location = new System.Drawing.Point(165, 342);
             this.cbManualTime.Name = "cbManualTime";
             this.cbManualTime.Size = new System.Drawing.Size(221, 22);
             this.cbManualTime.TabIndex = 14;
@@ -199,7 +199,7 @@ namespace SIvPaVS_App
             // 
             this.lbTime.AutoSize = true;
             this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.Location = new System.Drawing.Point(110, 341);
+            this.lbTime.Location = new System.Drawing.Point(109, 318);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(36, 17);
             this.lbTime.TabIndex = 13;
@@ -211,7 +211,7 @@ namespace SIvPaVS_App
             this.dtTime.Enabled = false;
             this.dtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTime.Location = new System.Drawing.Point(166, 333);
+            this.dtTime.Location = new System.Drawing.Point(165, 310);
             this.dtTime.Name = "dtTime";
             this.dtTime.Size = new System.Drawing.Size(247, 26);
             this.dtTime.TabIndex = 12;
@@ -220,7 +220,7 @@ namespace SIvPaVS_App
             // tbTaxCode
             // 
             this.tbTaxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaxCode.Location = new System.Drawing.Point(166, 403);
+            this.tbTaxCode.Location = new System.Drawing.Point(165, 380);
             this.tbTaxCode.MaxLength = 16;
             this.tbTaxCode.Name = "tbTaxCode";
             this.tbTaxCode.Size = new System.Drawing.Size(247, 26);
@@ -233,7 +233,7 @@ namespace SIvPaVS_App
             // 
             this.lbTaxCode.AutoSize = true;
             this.lbTaxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTaxCode.Location = new System.Drawing.Point(8, 409);
+            this.lbTaxCode.Location = new System.Drawing.Point(7, 386);
             this.lbTaxCode.Name = "lbTaxCode";
             this.lbTaxCode.Size = new System.Drawing.Size(138, 17);
             this.lbTaxCode.TabIndex = 10;
@@ -250,7 +250,7 @@ namespace SIvPaVS_App
             this.gbCompanyAddress.Controls.Add(this.tbStreet);
             this.gbCompanyAddress.Controls.Add(this.lbStreet);
             this.gbCompanyAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCompanyAddress.Location = new System.Drawing.Point(12, 161);
+            this.gbCompanyAddress.Location = new System.Drawing.Point(14, 148);
             this.gbCompanyAddress.Name = "gbCompanyAddress";
             this.gbCompanyAddress.Size = new System.Drawing.Size(547, 156);
             this.gbCompanyAddress.TabIndex = 6;
@@ -413,10 +413,10 @@ namespace SIvPaVS_App
             this.outerPanelItems.AutoScroll = true;
             this.outerPanelItems.Controls.Add(this.panelItems);
             this.outerPanelItems.Dock = System.Windows.Forms.DockStyle.Top;
-            this.outerPanelItems.Location = new System.Drawing.Point(0, 496);
+            this.outerPanelItems.Location = new System.Drawing.Point(0, 444);
             this.outerPanelItems.MaximumSize = new System.Drawing.Size(569, 250);
             this.outerPanelItems.Name = "outerPanelItems";
-            this.outerPanelItems.Size = new System.Drawing.Size(569, 212);
+            this.outerPanelItems.Size = new System.Drawing.Size(569, 130);
             this.outerPanelItems.TabIndex = 7;
             // 
             // lbTAXPercentage
@@ -552,7 +552,7 @@ namespace SIvPaVS_App
             this.gbSummary.Controls.Add(this.lbTAXBase);
             this.gbSummary.Controls.Add(this.lbTotal);
             this.gbSummary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSummary.Location = new System.Drawing.Point(0, 708);
+            this.gbSummary.Location = new System.Drawing.Point(0, 574);
             this.gbSummary.Name = "gbSummary";
             this.gbSummary.Size = new System.Drawing.Size(569, 174);
             this.gbSummary.TabIndex = 7;
@@ -562,7 +562,7 @@ namespace SIvPaVS_App
             // 
             this.btValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btValidate.ForeColor = System.Drawing.Color.Blue;
-            this.btValidate.Location = new System.Drawing.Point(12, 918);
+            this.btValidate.Location = new System.Drawing.Point(10, 780);
             this.btValidate.Name = "btValidate";
             this.btValidate.Size = new System.Drawing.Size(89, 45);
             this.btValidate.TabIndex = 7;
@@ -575,7 +575,7 @@ namespace SIvPaVS_App
             this.lbAllFieldsRequired.AutoSize = true;
             this.lbAllFieldsRequired.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAllFieldsRequired.ForeColor = System.Drawing.Color.Red;
-            this.lbAllFieldsRequired.Location = new System.Drawing.Point(9, 897);
+            this.lbAllFieldsRequired.Location = new System.Drawing.Point(7, 759);
             this.lbAllFieldsRequired.Name = "lbAllFieldsRequired";
             this.lbAllFieldsRequired.Size = new System.Drawing.Size(259, 18);
             this.lbAllFieldsRequired.TabIndex = 8;
@@ -586,7 +586,7 @@ namespace SIvPaVS_App
             // 
             this.btSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSign.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btSign.Location = new System.Drawing.Point(445, 918);
+            this.btSign.Location = new System.Drawing.Point(443, 780);
             this.btSign.Name = "btSign";
             this.btSign.Size = new System.Drawing.Size(112, 45);
             this.btSign.TabIndex = 9;
@@ -598,7 +598,7 @@ namespace SIvPaVS_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 975);
+            this.ClientSize = new System.Drawing.Size(569, 1045);
             this.Controls.Add(this.btSign);
             this.Controls.Add(this.lbAllFieldsRequired);
             this.Controls.Add(this.btValidate);
@@ -611,7 +611,7 @@ namespace SIvPaVS_App
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1256, 1800);
-            this.MinimumSize = new System.Drawing.Size(500, 871);
+            this.MinimumSize = new System.Drawing.Size(587, 1030);
             this.Name = "form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokladničný blok";

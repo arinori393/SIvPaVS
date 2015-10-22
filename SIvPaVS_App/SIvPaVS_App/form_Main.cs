@@ -423,7 +423,7 @@ namespace SIvPaVS_App
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "XML nie je validné!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "XML nie je validné!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -453,16 +453,19 @@ namespace SIvPaVS_App
 
                     Signer signer = new Signer(doc.InnerXml.ToString());
                     signedXml = signer.SignXml();
-                        }
 
+                    string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.companyregnum+ "_signed";
+                    DialogResult result = fbdSelectSavingPlace.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        file = fbdSelectSavingPlace.SelectedPath + "\\" + file + ".xml";
+                        File.WriteAllText(file, signedXml = signer.SignXml());
 
+                    }
+                }
             }
             else
                 MessageBox.Show("Pred podpísaním prosím validujte formulár stlačením tlačidla 'Validuj'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-
-
         }
 
         #endregion

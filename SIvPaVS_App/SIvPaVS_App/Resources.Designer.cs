@@ -91,13 +91,16 @@ namespace SIvPaVS_App {
         ///  &lt;xsl:output method=&quot;text&quot;/&gt;
         ///
         ///  &lt;xsl:template match=&quot;text()&quot; /&gt;
-        ///  
-        ///  &lt;xsl:template match=&quot;ReceiptObject&quot;&gt;
-        ///      &lt;xsl:text&gt;&amp;#09;&amp;#09;Pokladničný blok&amp;#xd;&amp;#xd;&lt;/xsl:text&gt;
-        ///    
-        ///      &lt;xsl:apply-templates select=&quot;provider&quot;/&gt;
-        ///    
-        ///      &lt;xsl:text&gt;&amp;#xd;Čas:&amp;#09;&amp;#09;&amp;#09;&amp;#09;&amp;#09;&lt;/xsl:text&gt;&lt;xsl:value-of select=&quot;issued-at&quot;/&gt;&lt;xsl:text&gt;&amp;#xd;&lt;/xsl:t [rest of string was truncated]&quot;;.
+        ///
+        ///  &lt;xsl:template match=&quot;receipt&quot;&gt;
+        ///    &lt;xsl:text&gt;&amp;#09;&amp;#09;Pokladničný blok&amp;#xd;&amp;#xd;&lt;/xsl:text&gt;
+        ///
+        ///    &lt;xsl:apply-templates select=&quot;provider&quot;/&gt;
+        ///
+        ///    &lt;xsl:text&gt;&amp;#xd;Čas:&amp;#09;&amp;#09;&amp;#09;&lt;/xsl:text&gt;
+        ///    &lt;xsl:value-of select=&quot;issued-at&quot;/&gt;
+        ///    &lt;xsl:text&gt;&amp;#xd;&lt;/xsl:text&gt;
+        ///    &lt;xsl:text&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string XML_to_TXT_XSLT {
             get {
