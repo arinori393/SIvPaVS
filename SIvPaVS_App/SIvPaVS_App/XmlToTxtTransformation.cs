@@ -39,18 +39,20 @@ namespace SIvPaVS_App
     
         public string f_TransformXml()
         {
-        XmlDocument sourceXmlDocument = new XmlDocument();
-        sourceXmlDocument.LoadXml(_xml);
-        XslCompiledTransform transformer = new XslCompiledTransform();
-        XmlTextReader xsltReader = new XmlTextReader(new StringReader(_xslt));
-        transformer.Load(xsltReader);
-        MemoryStream outputStream = new MemoryStream();
-        XmlWriter xmlWriter = XmlWriter.Create(outputStream, transformer.OutputSettings);
-        transformer.Transform(sourceXmlDocument, null, xmlWriter);
-        outputStream.Position = 0;
-        StreamReader streamReader = new StreamReader(outputStream);
 
-        return streamReader.ReadToEnd();
+
+            XmlDocument sourceXmlDocument = new XmlDocument();
+            sourceXmlDocument.LoadXml(_xml);
+            XslCompiledTransform transformer = new XslCompiledTransform();
+            XmlTextReader xsltReader = new XmlTextReader(new StringReader(_xslt));
+            transformer.Load(xsltReader);
+            MemoryStream outputStream = new MemoryStream();
+            XmlWriter xmlWriter = XmlWriter.Create(outputStream, transformer.OutputSettings);
+            transformer.Transform(sourceXmlDocument, null, xmlWriter);
+            outputStream.Position = 0;
+            StreamReader streamReader = new StreamReader(outputStream);
+
+            return streamReader.ReadToEnd();
     
     }
 

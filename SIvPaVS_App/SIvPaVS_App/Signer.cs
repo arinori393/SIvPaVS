@@ -16,7 +16,8 @@ namespace SIvPaVS_App
 
             //Ditec_Zep_DSigXadesAtl.CXadesSigAtlClass;
             Ditec_Zep_DSigXades_XmlPluginAtl.CPluginAtl signer =new  Ditec_Zep_DSigXades_XmlPluginAtl.CPluginAtl();
-            var signerObj = signer.CreateObject("receipts", "Pokladničný blok", xml, Resources.receipts,"", "D:\\_FIIT\\SIvPaVS\\Projekt\\SIvPaVS\\SIvPaVS_Xml\\receipts.xsd", Resources.XML_to_TXT_XSLT, "D:\\_FIIT\\SIvPaVS\\Projekt\\SIvPaVS\\SIvPaVS_Xml\\XML_to_TXT_XSLT.xsl");
+            var a = Path.GetDirectoryName(Application.ExecutablePath);
+            var signerObj = signer.CreateObject("receipts", "Pokladničný blok", xml, Resources.receipts,"", a + @"\..\..\Resources\receipts.xsd", Resources.XML_to_TXT_XSLT, a + @"\..\..\Resources\XML_to_TXT_XSLT.xsl");
 
 
             Ditec_Zep_DSigXadesAtl.CXadesSigAtl oXML = new Ditec_Zep_DSigXadesAtl.CXadesSigAtl();

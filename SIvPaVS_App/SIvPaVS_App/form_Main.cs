@@ -13,6 +13,7 @@ using System.IO;
 using System.Xml.Schema;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Xml.Xsl;
 
 namespace SIvPaVS_App
 {
@@ -259,12 +260,10 @@ namespace SIvPaVS_App
                 receipts.receipt = Receipt;
                 Receipt.id = "1";
 
-                string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.name;
-
+                string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.companyregnum;
                 DialogResult result = fbdSelectSavingPlace.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    
                     file = fbdSelectSavingPlace.SelectedPath + "\\" + file + "." + format.ToLower();
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
 
@@ -281,8 +280,8 @@ namespace SIvPaVS_App
                         using (StringWriter textWriter = new StringWriter())
                         {
                             serializer.Serialize(textWriter, receipts);
-
-                            transformation = new XmlToTxtTransformation(textWriter.ToString(),Resources.XML_to_TXT_XSLT);
+                        
+                            transformation = new XmlToTxtTransformation(textWriter.ToString(), Resources.XML_to_TXT_XSLT);
                         }
                         File.WriteAllText(file, transformation.f_TransformXml());
                     }
@@ -297,6 +296,51 @@ namespace SIvPaVS_App
                     MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
+
+
+                //if (isValidated)
+                //{
+                //    var receipts = new receiptsType();
+                //    receipts.receipt = Receipt;
+                //    Receipt.id = "1";
+
+                //    string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.name;
+
+                //    DialogResult result = fbdSelectSavingPlace.ShowDialog();
+                //    if (result == DialogResult.OK)
+                //    {
+
+                //        file = fbdSelectSavingPlace.SelectedPath + "\\" + file + "." + format.ToLower();
+                //        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
+
+                //        if (format.ToLower() == "xml")
+                //        {
+                //            Stream writer = new FileStream(file, FileMode.Create);
+                //            serializer.Serialize(writer, receipts);
+                //            writer.Close();
+
+                //        }
+                //        else if (format.ToLower() == "txt")
+                //        {
+                //            XmlToTxtTransformation transformation;
+                //            using (StringWriter textWriter = new StringWriter())
+                //            {
+                //                serializer.Serialize(textWriter, receipts);
+
+                //                transformation = new XmlToTxtTransformation(textWriter.ToString(), Resources.XML_to_TXT_XSLT);
+                //            }
+                //            File.WriteAllText(file, transformation.f_TransformXml());
+                //        }
+
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //    }
+
+                //}
+
 
             }
             else
