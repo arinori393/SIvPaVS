@@ -80,6 +80,7 @@ namespace SIvPaVS_App
             this.fbdSelectSavingPlace = new System.Windows.Forms.FolderBrowserDialog();
             this.ofdLoadXml = new System.Windows.Forms.OpenFileDialog();
             this.btSign = new System.Windows.Forms.Button();
+            this.btTimeStamp = new System.Windows.Forms.Button();
             this.ms_MainMenu.SuspendLayout();
             this.gbCompany.SuspendLayout();
             this.gbCompanyAddress.SuspendLayout();
@@ -594,11 +595,24 @@ namespace SIvPaVS_App
             this.btSign.UseVisualStyleBackColor = true;
             this.btSign.Click += new System.EventHandler(this.eh_btSign_Click);
             // 
+            // btTimeStamp
+            // 
+            this.btTimeStamp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTimeStamp.ForeColor = System.Drawing.Color.Blue;
+            this.btTimeStamp.Location = new System.Drawing.Point(125, 780);
+            this.btTimeStamp.Name = "btTimeStamp";
+            this.btTimeStamp.Size = new System.Drawing.Size(89, 45);
+            this.btTimeStamp.TabIndex = 10;
+            this.btTimeStamp.Text = "Time Stamp";
+            this.btTimeStamp.UseVisualStyleBackColor = true;
+            this.btTimeStamp.Click += new System.EventHandler(this.btTimeStamp_Click);
+            // 
             // form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 1045);
+            this.Controls.Add(this.btTimeStamp);
             this.Controls.Add(this.btSign);
             this.Controls.Add(this.lbAllFieldsRequired);
             this.Controls.Add(this.btValidate);
@@ -682,6 +696,7 @@ namespace SIvPaVS_App
         private System.Windows.Forms.ToolStripMenuItem tsmi_Open;
         private System.Windows.Forms.OpenFileDialog ofdLoadXml;
         private System.Windows.Forms.Button btSign;
+        private System.Windows.Forms.Button btTimeStamp;
     }
 }
 

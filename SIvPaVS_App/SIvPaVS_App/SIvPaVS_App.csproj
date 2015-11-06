@@ -35,6 +35,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>C:\Users\Gajdoš Michal\Downloads\bccrypto-net-1.7-bin\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Castle.Core.dll</HintPath>
     </Reference>
@@ -107,6 +110,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -141,6 +146,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema\GeneratedReceipt.cs" />
+    <Compile Include="Service References\TimeStampService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Signer.cs" />
     <Compile Include="XmlToTxtTransformation.cs" />
     <Compile Include="Resources.Designer.cs">
@@ -179,6 +189,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\TimeStampService\SIvPaVS_App.TimeStampService.GetTimestampResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeStampService\TS.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -241,6 +255,27 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\TimeStampService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeStampService\TS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeStampService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeStampService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeStampService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

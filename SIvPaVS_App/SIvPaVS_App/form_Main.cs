@@ -14,6 +14,8 @@ using System.Xml.Schema;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Xml.Xsl;
+using Org.BouncyCastle.Tsp;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace SIvPaVS_App
 {
@@ -80,10 +82,7 @@ namespace SIvPaVS_App
                                                 "Zimbabwe" });
             cbCountry.Text = "Slovensko";
             dtTime.Value = DateTime.Now;
-            f_SetControlsFromEntity();
-
-
-         
+            f_SetControlsFromEntity();       
         }
 
 
@@ -292,56 +291,7 @@ namespace SIvPaVS_App
                     
                 }
                 else
-                {
                     MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-
-
-                //if (isValidated)
-                //{
-                //    var receipts = new receiptsType();
-                //    receipts.receipt = Receipt;
-                //    Receipt.id = "1";
-
-                //    string file = DateTime.Now.ToString("dd.MM.yyyy_hhmmss") + "-" + Receipt.provider.name;
-
-                //    DialogResult result = fbdSelectSavingPlace.ShowDialog();
-                //    if (result == DialogResult.OK)
-                //    {
-
-                //        file = fbdSelectSavingPlace.SelectedPath + "\\" + file + "." + format.ToLower();
-                //        System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(receipts.GetType());
-
-                //        if (format.ToLower() == "xml")
-                //        {
-                //            Stream writer = new FileStream(file, FileMode.Create);
-                //            serializer.Serialize(writer, receipts);
-                //            writer.Close();
-
-                //        }
-                //        else if (format.ToLower() == "txt")
-                //        {
-                //            XmlToTxtTransformation transformation;
-                //            using (StringWriter textWriter = new StringWriter())
-                //            {
-                //                serializer.Serialize(textWriter, receipts);
-
-                //                transformation = new XmlToTxtTransformation(textWriter.ToString(), Resources.XML_to_TXT_XSLT);
-                //            }
-                //            File.WriteAllText(file, transformation.f_TransformXml());
-                //        }
-
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Nastala chyba pri výbere miesta uloženia. Prosím opakujte.", "Chyba výberu miesta uloženia!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                //    }
-
-                //}
-
-
             }
             else
                 MessageBox.Show("Pred uložením prosím validujte formulár stlačením tlačidla 'Validuj'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -468,6 +418,72 @@ namespace SIvPaVS_App
                 MessageBox.Show("Pred podpísaním prosím validujte formulár stlačením tlačidla 'Validuj'.", "Chyba validácie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        
+        private void f_AddTimeStamp()
+        {
+            ofdLoadXml.Filter = "XML Files (*.xml)|*.xml";
+            DialogResult result = ofdLoadXml.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                XmlReader reader = XmlReader.Create(ofdLoadXml.FileName);
+                XmlDocument xml = new XmlDocument();
+                xml.Load(reader);
+
+                var namespaceId = new XmlNamespaceManager(xml.NameTable);
+                namespaceId.AddNamespace("ds", "http://www.w3.org/2000/09/xmldsig#");
+
+                string data = getBase64Data(xml.SelectSingleNode("//ds:SignatureValue", namespaceId)); // todo: x-path to select node
+
+                TimeStampService.TSSoapClient tsClient = new TimeStampService.TSSoapClient();
+                var timestamp = tsClient.GetTimestamp(data);
+
+                TimeStampResponse response = new TimeStampResponse(Convert.FromBase64CharArray(timestamp.ToCharArray(), 0, timestamp.Length));
+                XNamespace namespaceAdd = "http://uri.etsi.org/01903/v1.3.2#";
+
+                namespaceId.AddNamespace("xades", "http://uri.etsi.org/01903/v1.3.2#");
+                var partialxml = xml.SelectSingleNode("//xades:QualifyingProperties", namespaceId);
+
+                XDocument doc = XDocument.Load(ofdLoadXml.FileName);
+                XNamespace namespacePrefix = "http://uri.etsi.org/01903/v1.3.2#";
+                XElement desc = doc.Descendants(namespacePrefix + "QualifyingProperties").Last();
+
+                desc.Add(
+                    new XElement(namespacePrefix + "UnsignedProperties",
+                        new XElement(namespacePrefix + "UnsignedSignatureProperties",
+                            new XElement(namespacePrefix + "SignatureTimeStamp", 
+                                new object[] { new XAttribute("Id", "SignatureTimeStampId"),
+                                        new XElement(namespacePrefix + "EncapsulatedTimeStamp",
+                                            Convert.ToBase64String(response.TimeStampToken.GetEncoded())) }
+                                )
+                            )
+                        )
+                    );
+
+                XElement EncapsulatedTimeStamp = new XElement(namespacePrefix+ "EncapsulatedTimeStamp", Convert.ToBase64String( response.TimeStampToken.GetEncoded()))
+                doc.Save(ofdLoadXml.FileName.Replace(".xml", "_time.xml"))
+            }
+            else
+                MessageBox.Show("Nastala chyba pri načítavaní súboru!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static XmlNode GetXmlNode(XElement element)
+        {
+            using (XmlReader xmlReader = element.CreateReader())
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(xmlReader);
+                return xmlDoc;
+            }
+        }
+
+        private string getBase64Data(XmlNode xmlNode)
+        {
+            //return Convert.ToBase64String(Encoding.UTF8.GetBytes(xmlNode.InnerXml.ToString()));
+            return xmlNode.InnerXml;
+        }
+
+        
         #endregion
 
         #region EventHandlers
@@ -727,7 +743,13 @@ namespace SIvPaVS_App
         {
             f_SignXml();
         }
- #endregion
+        #endregion
+
+        private void btTimeStamp_Click(object sender, EventArgs e)
+        {
+            f_AddTimeStamp();
+        }
+
 
     }
 }

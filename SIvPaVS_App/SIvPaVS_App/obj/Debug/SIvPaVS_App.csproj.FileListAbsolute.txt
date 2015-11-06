@@ -59,3 +59,4 @@ D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\Interop.Ditec
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\Interop.DSigXadesFbLib.dll
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csproj.ResolveComReference.cache
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\obj\Debug\SIvPaVS_App.csprojResolveAssemblyReference.cache
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_App\bin\Debug\BouncyCastle.Crypto.dll
