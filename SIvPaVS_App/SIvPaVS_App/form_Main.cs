@@ -460,8 +460,8 @@ namespace SIvPaVS_App
                         )
                     );
 
-                XElement EncapsulatedTimeStamp = new XElement(namespacePrefix+ "EncapsulatedTimeStamp", Convert.ToBase64String( response.TimeStampToken.GetEncoded()))
-                doc.Save(ofdLoadXml.FileName.Replace(".xml", "_time.xml"))
+                XElement EncapsulatedTimeStamp = new XElement(namespacePrefix + "EncapsulatedTimeStamp", Convert.ToBase64String(response.TimeStampToken.GetEncoded()));
+                doc.Save(ofdLoadXml.FileName.Replace(".xml", "_time.xml"));
             }
             else
                 MessageBox.Show("Nastala chyba pri načítavaní súboru!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
