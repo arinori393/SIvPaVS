@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.Xml;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -26,8 +27,8 @@ namespace SIvPaVS_Podatelna
             XmlNode signedInfoN = xSignature.SelectSingleNode(@"//ds:SignedInfo", xNS);
             string signedInfoTransformAlg = xSignature.SelectSingleNode(@"//ds:SignedInfo/ds:CanonicalizationMethod", xNS).Attributes.GetNamedItem("Algorithm").Value;
             string signedInfoSignatureAlg = xSignature.SelectSingleNode(@"//ds:SignedInfo/ds:SignatureMethod", xNS).Attributes.GetNamedItem("Algorithm").Value;
-            byte[] objSignedInfoOld = this.canonicalize(this.beforeCanonicalize(signedInfoN, true), signedInfoTransformAlg);
-            byte[] objSignedInfoNew = this.canonicalize(this.beforeCanonicalize(signedInfoN), signedInfoTransformAlg);
+            byte[] objSignedInfoOld = this.canonicalize(xSignature.SelectSingleNode("//ds:Object/descendant-or-self::node()|//ds:Object//@*", xNS), signedInfoTransformAlg);
+            byte[] objSignedInfoNew = this.canonicalize(xSignature.SelectSingleNode("//ds:Object/descendant-or-self::node()|//ds:Object//@*", xNS), signedInfoTransformAlg);
 
             string errMsg = "";
             bool res = this.verifySign(signatureCertificate, signature, objSignedInfoNew, signedInfoSignatureAlg, out errMsg);
@@ -44,19 +45,57 @@ namespace SIvPaVS_Podatelna
             return string.Empty;
         }
 
-        private byte[] canonicalize(object v, string signedInfoTransformAlg)
+        private byte[] canonicalize(XmlNode outerData, string signedInfoTransformAlg)
         {
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(outerData.InnerXml);
+
+            var data = doc.DocumentElement;
+
+            XmlDsigC14NTransform transform = new XmlDsigC14NTransform();
+            transform.Algorithm = signedInfoTransformAlg;
+            transform.LoadInput(doc);// =  data;
+
+            var a = transform.GetOutput();
+            var aa = a.ToString();
+
+            var b = a as System.IO.Stream;
+
+            b.Position = 0;
+            byte[] buffer = new byte[b.Length];
+            for (int totalBytesCopied = 0; totalBytesCopied < b.Length;)
+                totalBytesCopied += b.Read(buffer, totalBytesCopied, Convert.ToInt32(b.Length) - totalBytesCopied);
+            return buffer;
+
+
+            //return System.Text.Encoding.UTF8.GetBytes(aa);
+            //XmlDsigExcC14NTransform.
+            //System.Security.Cryptography
             throw new NotImplementedException();
         }
 
-        private object beforeCanonicalize(XmlNode signedInfoN)
+        private XmlElement beforeCanonicalize(XmlNode signedInfoN)
         {
-            throw new NotImplementedException();
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(System.Text.Encoding.ASCII.GetString(Convert.FromBase64String(signedInfoN.InnerText)));
+
+            return doc.DocumentElement;
+
         }
 
-        private object beforeCanonicalize(XmlNode signedInfoN, bool v)
+        private XmlElement beforeCanonicalize(XmlNode signedInfoN, bool v)
         {
-            throw new NotImplementedException();
+
+            byte[] data = System.Convert.FromBase64String(signedInfoN.InnerText);
+            string base64Decoded = System.Text.ASCIIEncoding.ASCII.GetString(data);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(System.Text.Encoding.ASCII.GetString(Convert.FromBase64String(signedInfoN.InnerText)));
+
+            return doc.DocumentElement;
+            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -115,7 +154,7 @@ namespace SIvPaVS_Podatelna
                 bool res = verif.VerifySignature(signature);
                 if (!res)
                 {
-                    //errorMessage = "verifySign 9: VerifySignature=false: dataB64=" + Convert.ToBase64String(data) + Environment.NewLine + "signatureB64=" + Convert.ToBase64String(signature)––– +Environment.NewLine + "certificateDataB64=" + Convert.ToBase64String(certificateData);
+                    errorMessage = "verifySign 9: VerifySignature=false: dataB64=" + Convert.ToBase64String(data) + Environment.NewLine + "signatureB64=" + Convert.ToBase64String(signature) +Environment.NewLine + "certificateDataB64=" + Convert.ToBase64String(certificateData);
                 }
 
                 return res;
