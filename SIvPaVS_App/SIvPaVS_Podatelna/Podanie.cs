@@ -41,6 +41,11 @@ namespace SIvPaVS_Podatelna
             if (result != string.Empty)
                 return result;
 
+            //• overenie ostatnych elementov profilu XADES_ZEP, ktore prinalezia do specifikacie XML Signature
+            if (validationStep == 0 || validationStep == 5)
+                result = new ElementContentValidation().Validate(xml);
+            if (result != string.Empty)
+                return result;
 
             return "VALID";
         }
