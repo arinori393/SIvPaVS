@@ -34,7 +34,7 @@ namespace SIvPaVS_Podatelna
                     var xml = XDocument.Load(file.FullName);
 
                     var podanie = new Podanie();
-                    string isValidResult = podanie.IsValid(xml,4);
+                    string isValidResult = podanie.IsValid(xml);
 
                     rtbResults.AppendText(file.Name + " - " + isValidResult + "\n");
                 }
