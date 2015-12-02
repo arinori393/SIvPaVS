@@ -72,6 +72,10 @@
     <Reference Include="Esent.Interop">
       <HintPath>..\..\..\SourceGrid_4_40_src\SourceGrid_4_40_src\libs\Esent.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Services2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Web.Services2.2.0.3.0\lib\net11\Microsoft.Web.Services2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NPSetupInstallerClass">
       <HintPath>..\..\..\..\..\..\instals\Ditec\DSigXades\NPSetupInstallerClass.dll</HintPath>
     </Reference>
@@ -81,7 +85,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Security" />
+    <Reference Include="system.web.services %282%29">
+      <HintPath>dll\system.web.services (2).dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,6 +103,7 @@
   <ItemGroup>
     <Compile Include="ContentContainsAlgorithmsReferences.cs" />
     <Compile Include="CoreValidation.cs" />
+    <Compile Include="ElementContentValidation.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Podatelna.cs">
       <SubType>Form</SubType>
@@ -120,6 +129,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

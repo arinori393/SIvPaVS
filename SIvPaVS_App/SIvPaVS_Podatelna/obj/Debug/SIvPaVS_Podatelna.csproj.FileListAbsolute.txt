@@ -33,3 +33,5 @@ D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\obj\Debug\Interop
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\obj\Debug\Interop.Ditec_Zep_DSigXades_XmlPluginAtl.dll
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\obj\Debug\Interop.DSigXadesFbLib.dll
 D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\obj\Debug\SIvPaVS_Podatelna.csproj.ResolveComReference.cache
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\bin\Debug\Microsoft.Web.Services2.dll
+D:\_FIIT\SIvPaVS\Projekt\SIvPaVS\SIvPaVS_App\SIvPaVS_Podatelna\bin\Debug\system.web.services (2).dll

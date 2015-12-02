@@ -8,6 +8,10 @@ using System.Security.Cryptography.Xml;
 using System.Xml;
 using System.Xml.Linq;
 
+using System.Security.Cryptography.X509Certificates;
+using System.Globalization;
+using System.Numerics;
+
 namespace SIvPaVS_Podatelna
 {
     internal class ElementContentValidation
@@ -348,24 +352,28 @@ namespace SIvPaVS_Podatelna
                         XmlNode x509dataNode = keyInfo.ChildNodes[0];
                         int pomVyskyt = 3;
 
-                        string values = String.Empty;
+                        List<string> values = new List<string>() ;
 
                         foreach (XmlNode child in x509dataNode.ChildNodes)
                         {
                             switch (child.Name)
                             {
                                 case "ds:X509Certificate":
+
+
                                     pomVyskyt--;
                                     break;
                                 case "ds:X509IssuerSerial":
-                                    /*foreach (XmlNode isNode in child.ChildNodes)
+                                    foreach (XmlNode isNode in child.ChildNodes)
                                     {
-                                        values += isNode.InnerText;
-                                    }*/
+                                        //if (isNode.Name)
+
+                                        values.Add(isNode.InnerText);
+                                    }
                                     pomVyskyt--;
                                     break;
                                 case "ds:X509SubjectName":
-                                    values += child.InnerText;
+                                    values.Add("ds:X509SubjectName" + child.InnerText);
                                     pomVyskyt--;
                                     break;
                                 default:
@@ -379,15 +387,48 @@ namespace SIvPaVS_Podatelna
                             errMsg = "Chyba: Element X509Data v ds:KeyInfo neobsahuje niektory, z povinnych elementov";
                             return true;
                         }
-
-                        string values64 = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(values));
                         XmlNode cert = x509dataNode.ChildNodes[0];
                         string certVal = cert.InnerText;
-                        if (!certVal.Contains(values64))
+                        var certificate = Microsoft.Web.Services2.Security.X509.X509Certificate.FromBase64String(certVal);
+
+
+                        XmlNode nodeToValidate = x509dataNode.SelectSingleNode(@"//ds:X509IssuerName", xNS);
+
+                        if (!(nodeToValidate.InnerText == certificate.Issuer))
                         {
-                            errMsg = "Chyba";
+                            errMsg = "Chyba: Overenie hodnoty cerifikatu X509IssuerName";
                             return true;
                         }
+
+
+                        nodeToValidate = x509dataNode.SelectSingleNode(@"//ds:X509SerialNumber", xNS);
+
+                        if (!(nodeToValidate.InnerText == BigInteger.Parse(certificate.GetSerialNumberString(), NumberStyles.HexNumber).ToString()))
+                        {
+                            errMsg = "Chyba: Overenie hodnoty cerifikatu X509SerialNumber";
+                            return true;
+                        }
+
+                        nodeToValidate = x509dataNode.SelectSingleNode(@"//ds:X509SubjectName", xNS);
+
+                        if (!(nodeToValidate.InnerText == certificate.Subject))
+                        {
+                            errMsg = "Chyba: Overenie hodnoty cerifikatu X509SubjectName";
+                            return true;
+                        }
+
+                        //string values64 = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(values));
+
+
+                        foreach (var value in values)
+                        {
+                        }
+
+                        //if (!certVal.Contains(values64))
+                        //{
+                        //    errMsg = "Chyba";
+                        //    return true;
+                        //}
                         // POROVNANIE HODNOT
 
                     }

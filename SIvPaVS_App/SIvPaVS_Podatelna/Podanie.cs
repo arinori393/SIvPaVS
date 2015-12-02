@@ -9,7 +9,7 @@ namespace SIvPaVS_Podatelna
 {
     public class Podanie
     {
-        internal string IsValid(XDocument xml, int validationStep = 0)
+        internal string IsValid(XDocument xml, int validationStep = 5)
         {
             string result = string.Empty;
 
