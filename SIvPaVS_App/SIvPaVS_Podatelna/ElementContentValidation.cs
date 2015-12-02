@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 using System.Security.Cryptography.Xml;
+using System.Security.Cryptography;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -672,19 +674,71 @@ namespace SIvPaVS_Podatelna
                 XmlAttribute uriAttr = manifestRef.Attributes["URI"];
                 string uriVal = uriAttr.Value.Replace("#","");
 
+                string digestAlg = String.Empty;
+                string digestVal = String.Empty;
+                foreach(XmlNode manRefChild in manifestRef.ChildNodes)
+                {
+                    if(manRefChild.Name.Equals("ds:DigestMethod"))
+                    {
+                        XmlAttribute attrDAlg = manRefChild.Attributes["Algorithm"];
+                        digestAlg = attrDAlg.Value;
+                    }
+                    else if (manRefChild.Name.Equals("ds:DigestValue"))
+                    {
+                        digestVal = manRefChild.InnerText;
+                    }
+                }
+
                 if (ElementWithIdExists(@"//ds:Object", uriVal))
                 {
-                    XmlNodeList allElements = xSignature.SelectNodes(@"//ds:Object", xNS);
-                    foreach (XmlNode oneElement in allElements)
+                    XmlNode oneElement = xSignature.SelectSingleNode(@"//ds:Object[@Id='"+ uriVal +"']", xNS);
+                    
+                    if (!oneElement.Equals(null))
                     {
-                        XmlNode elementAttr = oneElement.Attributes["Id"];
-                        string elementAttrVal = elementAttr.Value;
+                        string xmlElement = oneElement.OuterXml;
 
-                        if (elementAttrVal.Equals(uriVal))
+                        using (MemoryStream msIn = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(xmlElement)))
                         {
- 
-                        }                        
-                    }
+                            XmlDsigExcC14NTransform t = new XmlDsigExcC14NTransform(true);                            
+                            t.LoadInput(msIn);
+
+                            HashAlgorithm hash = null;
+                            switch (digestAlg)
+                            {
+                                case "http://www.w3.org/2000/09/xmldsig#sha1":
+                                    hash = new System.Security.Cryptography.SHA1Managed();
+                                    break;
+                                case "http://www.w3.org/2001/04/xmldsig-more#sha224":
+                                    //hash = new System.Security.Cryptography.SH();
+                                    break;
+                                case "http://www.w3.org/2001/04/xmlenc#sha256":
+                                    hash = new System.Security.Cryptography.SHA256Managed();
+                                    break;
+                                case "http://www.w3.org/2001/04/xmldsig-more#sha384":
+                                    hash = new System.Security.Cryptography.SHA384Managed();
+                                    break;
+                                case "http://www.w3.org/2001/04/xmlenc#sha512":
+                                    hash = new System.Security.Cryptography.SHA512Managed();
+                                    break;
+                            }
+
+                            if (hash == null)
+                            {
+                                errMsg = "Chyba: Hash algoritmus pri overovani referencii v ds:Manifest nebol spravny! - " + digestAlg;
+                                return true;
+                            }
+
+                            byte[] digest = t.GetDigestedOutput(hash);
+                            //string result = BitConverter.ToString(digest).Replace("-", String.Empty);
+                            string result = Convert.ToBase64String(digest);
+                            if (!result.Equals(digestVal))
+                            {
+                                errMsg = "Chyba: Hodnota ds:DigestValue sa nezhoduje s vypocitanou hodnotou - Overovanie referencii ds:Manifest!";
+                                return true;
+                            }
+                        }
+                    }                        
+                    
                 }
                 else
                 {
