@@ -47,6 +47,13 @@ namespace SIvPaVS_Podatelna
             if (result != string.Empty)
                 return result;
 
+            //• Overenie časovej pečiatky
+            if (validationStep == 0 || validationStep == 10)
+                result = new TimestampValidation().Validate(xml);
+            if (result != string.Empty)
+                return result;
+
+
             return "VALID";
         }
     }
