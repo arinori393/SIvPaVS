@@ -20,16 +20,18 @@ namespace SIvPaVS_Podatelna
         private string errMsg = String.Empty;
         private string SignatureID = String.Empty;
         XmlNamespaceManager xNS;
+        XmlDocument xSignature;
 
         public ElementContentValidation() { 
         }
 
         internal string Validate(XDocument xml) {
 
-            var xSignature = DocumentExtensions.ToXmlDocument(xml);
+            xSignature = DocumentExtensions.ToXmlDocument(xml);
             xNS = new XmlNamespaceManager(xSignature.NameTable);
 
             xNS.AddNamespace("ds", Helpers.ds.NamespaceName);
+            xNS.AddNamespace("xades", Helpers.xades.NamespaceName);
 
             if (ValidateDSSignature(xSignature.SelectSingleNode(@"//ds:Signature", xNS))) {
                 return errMsg;
@@ -157,6 +159,12 @@ namespace SIvPaVS_Podatelna
                                     {
                                         errMsg = "Chyba: Referencia pre SignedProperties v ds:SignedInfo obsahuje atribut URI so zlou hodnotou!";
                                     }
+
+                                    if (!ElementWithIdExists("//xades:SignedProperties", uriAttrVal.Replace("#","")))
+                                    {
+                                        errMsg = "Chyba: ds:SignedProperties ktory referencuje dana referencia neexistuje (nenaslo sa ID)!";
+                                        return true;
+                                    }
                                 }
                                 else
                                 {
@@ -207,6 +215,12 @@ namespace SIvPaVS_Podatelna
                                     errMsg = "Chyba: Referencia pre Manifest objekt v ds:SignedInfo obsahuje atribut URI so zlou hodnotou!";
                                     return true;
                                 }
+
+                                if (!ElementWithIdExists("//ds:Manifest", uriAttrMFVal.Replace("#", "")))
+                                {
+                                    errMsg = "Chyba: ds:Manifest ktory referencuje dana referencia neexistuje (nenaslo sa ID)!";
+                                    return true;
+                                }
                             }
                             else
                             {
@@ -250,6 +264,12 @@ namespace SIvPaVS_Podatelna
                                     if (!string.Equals(uriAttrVal, uriCheckSP))
                                     {
                                         errMsg = "Chyba: Referencia pre SignatureProperties v ds:SignedInfo obsahuje atribut URI so zlou hodnotou!";
+                                    }
+
+                                    if (!ElementWithIdExists("//ds:SignatureProperties", uriAttrVal.Replace("#", "")))
+                                    {
+                                        errMsg = "Chyba: ds:SignatureProperties ktory referencuje dana referencia neexistuje (nenaslo sa ID)!";
+                                        return true;
                                     }
                                 }
                                 else
@@ -301,6 +321,12 @@ namespace SIvPaVS_Podatelna
                                     if (!string.Equals(uriAttrVal, uriCheckKI))
                                     {
                                         errMsg = "Chyba: Referencia pre KeyInfo v ds:SignedInfo obsahuje atribut URI so zlou hodnotou!";
+                                        return true;
+                                    }
+
+                                    if (!ElementWithIdExists("//ds:KeyInfo", uriAttrVal.Replace("#", "")))
+                                    {
+                                        errMsg = "Chyba: ds:KeyInfo ktory referencuje dana referencia neexistuje (nenaslo sa ID)!";
                                         return true;
                                     }
                                 }
@@ -387,6 +413,7 @@ namespace SIvPaVS_Podatelna
                             errMsg = "Chyba: Element X509Data v ds:KeyInfo neobsahuje niektory, z povinnych elementov";
                             return true;
                         }
+
                         XmlNode cert = x509dataNode.ChildNodes[0];
                         string certVal = cert.InnerText;
                         var certificate = Microsoft.Web.Services2.Security.X509.X509Certificate.FromBase64String(certVal);
@@ -430,7 +457,7 @@ namespace SIvPaVS_Podatelna
                         //    return true;
                         //}
                         // POROVNANIE HODNOT
-
+                        
                     }
                     else
                     {
@@ -541,6 +568,22 @@ namespace SIvPaVS_Podatelna
                     if (manifest.ChildNodes.Count == 1)
                     {
                         XmlNode manifestRef = manifest.ChildNodes[0];
+                        XmlAttribute uriAttr = manifestRef.Attributes["URI"];
+                        if (!uriAttr.Equals(null))
+                        {
+                            string uriVal = uriAttr.Value;
+                            if (!uriVal.Contains("#Object"))
+                            {
+                                errMsg = "Chyba: ds:Reference v ds:Manifest nereferencuje ds:Object!";
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            errMsg = "Chyba: ds:Reference v ds:Manifest neobsahuje atribut URI!";
+                            return true;
+                        }
+
                         XmlAttribute typeAttr = manifestRef.Attributes["Type"];
                         if (!typeAttr.Equals(null))
                         {
@@ -551,7 +594,53 @@ namespace SIvPaVS_Podatelna
                                 return true;
                             }
 
-                            // TUTO POKRACOVAT
+                            foreach (XmlNode refChild in manifestRef)
+                            {
+                                switch (refChild.Name)
+                                {
+                                    case "ds:Transforms":
+
+                                        XmlNode transform = refChild.ChildNodes[0];
+                                        XmlAttribute algAttr = transform.Attributes["Algorithm"];
+                                        if (!algAttr.Equals(null))
+                                        {
+                                            string algVal = algAttr.Value;
+                                            if (!algVal.Equals(Helpers.CanonicalizationRef))
+                                            {
+                                                errMsg = "Chyba: V atribute Algorithm pre ds:Transform je udana zla metoda!";
+                                                return true;
+                                            }
+                                        }
+                                        else 
+                                        {
+                                            errMsg = "Chyba: ds:Transform neobsahuje atribut Algorithm!";
+                                            return true;
+                                        }
+
+                                        break;
+                                    case "ds:DigestMethod":
+
+                                        XmlNode dalgAttr = refChild.Attributes["Algorithm"];
+                                        if (!dalgAttr.Equals(null))
+                                        {
+                                            string dalgVal = dalgAttr.Value;
+                                            if (!Helpers.DigestMethodAlgorithm.Contains(dalgVal))
+                                            {
+                                                errMsg = "Chyba: ds:DigestMethod ma uvedeny neplatny algoritmus!";
+                                                return true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            errMsg = "Chyba: ds:DigestMethod neobsahuje atribut Algorithm!";
+                                            return true;
+                                        }
+
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
                         }
                         else
                         {
@@ -576,6 +665,55 @@ namespace SIvPaVS_Podatelna
         }
 
         private bool ValidateDSManifestReferences(XmlNodeList manifestList) {
+
+            foreach (XmlNode manifest in manifestList)
+            {
+                XmlNode manifestRef = manifest.ChildNodes[0];
+                XmlAttribute uriAttr = manifestRef.Attributes["URI"];
+                string uriVal = uriAttr.Value.Replace("#","");
+
+                if (ElementWithIdExists(@"//ds:Object", uriVal))
+                {
+                    XmlNodeList allElements = xSignature.SelectNodes(@"//ds:Object", xNS);
+                    foreach (XmlNode oneElement in allElements)
+                    {
+                        XmlNode elementAttr = oneElement.Attributes["Id"];
+                        string elementAttrVal = elementAttr.Value;
+
+                        if (elementAttrVal.Equals(uriVal))
+                        {
+ 
+                        }                        
+                    }
+                }
+                else
+                {
+                    errMsg = "Chyba: ds:Manifest referencuje element, ktory neexistuje (nenaslo sa ID)!";
+                    return true;
+                }                   
+            }
+
+            return false;
+        }
+
+
+
+        // HELP METHODS
+        private bool ElementWithIdExists(string element, string id)
+        {
+            XmlNodeList allElements = xSignature.SelectNodes(element, xNS);
+            foreach (XmlNode oneElement in allElements)
+            {
+                XmlAttribute attr = oneElement.Attributes["Id"];
+                if (!attr.Equals(null))
+                {
+                    string val = attr.Value;
+                    if (val.Equals(id))
+                    {
+                        return true;
+                    }
+                }
+            }
 
             return false;
         }

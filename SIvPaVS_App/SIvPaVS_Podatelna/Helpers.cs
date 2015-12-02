@@ -12,6 +12,7 @@ namespace SIvPaVS_Podatelna
     {
         public static XNamespace xzep = "http://www.ditec.sk/ep/signature_formats/xades_zep/v1.0";// "http://www.ditec.sk/ep/signature_formats/xades_zep/v1.01";
         public static XNamespace ds = "http://www.w3.org/2000/09/xmldsig#";
+        public static XNamespace xades = "http://uri.etsi.org/01903/v1.3.2#";
 
         public static string CanonicalizationRef = "http://www.w3.org/TR/2001/REC-xml-c14n-20010315";
 
